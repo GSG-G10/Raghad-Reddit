@@ -8,17 +8,70 @@
     <title>Reddit</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <button id="sign-up-btn">SIGN UP</button>
+    <header class="home-header">
+      <div class="logo-container">
+        <img src="./image/reddit-logo.jpeg" alt="reddit logo">
+        <h1>Raghad Redd <span>i</span> t</h1>
+      </div>
+
+      <label id="search-label">
+        <img src="./image/search-icon.png" alt="search icon" class="search-icon">
+        <input type="search" placeholder="Search Reddit" id="search-input"/>
+      </label>
+
+      <nav class="home-nav">
         <button id="sign-in-btn">SIGN IN</button>
+        <button id="sign-up-btn">SIGN UP</button>
       </nav>
     </header>
 
+    <section class="trending-section">
+      <h2 class="section-title">Trending today</h2>
+      <div>
+        <img class="trending-img" src="" alt="">
+        <img class="trending-img" src="" alt="">
+        <img class="trending-img" src="" alt="">
+        <img class="trending-img" src="" alt="">
+      </div>
+    </section>
+
+    <section class="home-container">
+      <section class="left-section">
+        <section class="filtering-section">
+          <h2 class="section-title">Popular posts</h2>
+          <ul>
+            <li>New</li>
+            <li>Top</li>
+            <li>
+              <label class="time-filter-label">
+                <select name="time-filter" id="time-filter">
+                  <option value="now">Now</option>
+                  <option value="today">Today</option>
+                  <option value="week">This week</option>
+                  <option value="month">This month</option>
+                  <option value="year">This year</option>
+                  <option value="all">All time</option>
+                </select>
+              </label>
+            </li>
+          </ul>
+        </section>
+
+        <section class="posts-section">
+        </section>
+        <i class="icon icon-upvote _2Jxk822qXs4DaXwsN7yyHA"></i>
+      </section>
+      <section class="right-section">
+        <div></div>
+      </section>
+    </section>
+
     <section class="sign-popup">
+      <span></span>
       <form action="/sign-up" class="sign-form" method="POST">
         <h2 class="sign-title">Sign up</h2>
         <img src="./image/close.svg" alt="close icon" class="close-icon" />
+        <span class="error"></span>
         <label for="username">Username :</label>
         <input
           type="text"
@@ -53,6 +106,7 @@
       <form action="/sign-in" class="sign-form" method="POST">
         <h2 class="sign-title">Sign In</h2>
         <img src="./image/close.svg" alt="close icon" class="close-icon" />
+        <span class="error"></span>
         <label for="username">Username :</label>
         <input
           type="text"
