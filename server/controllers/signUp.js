@@ -10,7 +10,6 @@ module.exports = (req, res, next) => {
       signUpQuery(username, hashedPassword, email)
         .then(() => {
           next();
-          res.redirect('/');
         })
         .catch(() => {
           res.cookie('error', 'The username or the email you entered have been already used');

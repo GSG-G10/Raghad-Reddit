@@ -6,7 +6,7 @@ module.exports = (req, res, next) => {
     if (err) {
       next(err);
     } else {
-      res.cookie('access_token', token, { httpOnly: true, secure: true });
+      res.cookie('access_token', token, { httpOnly: true, secure: true }).redirect(`/user/${username}`);
     }
   });
 };

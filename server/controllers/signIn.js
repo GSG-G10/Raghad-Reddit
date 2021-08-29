@@ -12,7 +12,6 @@ module.exports = (req, res, next) => {
       comparePassword(password, hashedPassword, (err, isMatch) => {
         if (isMatch) {
           next();
-          res.redirect(`/user/${username}`);
         } else {
           res.cookie('error', 'You\'ve entered a wrong password');
           res.redirect('/');
