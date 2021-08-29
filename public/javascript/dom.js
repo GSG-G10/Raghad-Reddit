@@ -1,14 +1,19 @@
 const signUpBtn = document.querySelector('#sign-up-btn');
-const signPopUp = document.querySelector('.sign-popup');
-const closeIcon = document.querySelector('.close-icon');
+const signInBtn = document.querySelector('#sign-in-btn');
 
-const openForm = () => {
-  signPopUp.style.display = 'block';
+const signPopUp = document.querySelectorAll('.sign-popup');
+const closeIcon = document.querySelectorAll('.close-icon');
+
+const openForm = (i) => {
+  signPopUp[i].style.display = 'block';
 };
 
-const closeForm = () => {
-  signPopUp.style.display = 'none';
+const closeForm = (i) => {
+  signPopUp[i].style.display = 'none';
 };
 
-signUpBtn.addEventListener('click', openForm);
-closeIcon.addEventListener('click', closeForm);
+signUpBtn.addEventListener('click', () => { openForm(0); });
+signInBtn.addEventListener('click', () => { openForm(1); });
+closeIcon.forEach((elem, index) => {
+  elem.addEventListener('click', () => { closeForm(index); });
+});
