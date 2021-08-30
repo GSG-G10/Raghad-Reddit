@@ -6,11 +6,9 @@
   margin: 0;
   box-sizing: border-box;
 }
-
 body {
   background-color: #dae0e6;
 }
-
 .home-header {
   position: sticky;
   background-color: white;
