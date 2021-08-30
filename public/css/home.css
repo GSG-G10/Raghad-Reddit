@@ -221,6 +221,28 @@ body {
   width: 20%;
   height: 100%;
 }
+.sign-out-btn{
+  color: #0079d3;
+  border: 1px solid #0079d3;
+  background-color: white;
+  border-radius: 50px;
+  width: 45%;
+  height: 90%;
+  font-size: .9rem;
+  font-weight: bolder;
+  cursor: pointer;
+}
+.username-btn {
+  background-color: #0079d3;
+  color: white;
+  border-radius: 50px;
+  width: 45%;
+  height: 90%;
+  border: none;
+  font-size: .9rem;
+  font-weight: bolder;
+  cursor: pointer;
+}
 
 /* Styling user profile page */
 .filter-user {
@@ -290,7 +312,7 @@ body {
   font-size: 0.85rem;
   margin: 7px 0;
 }
-.add-post-btn {
+.add-post-btn, .follow-btn {
   margin: 18% 8% 0;
   width: 85%;
   border-radius: 50px;
