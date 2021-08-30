@@ -1,6 +1,7 @@
 const searchBtn = document.querySelector('.search-icon');
 const searchInput = document.querySelector('#search-input');
 const navBar = document.querySelector('.home-nav');
+const communitySection = document.querySelector('.communities-section');
 
 // function to create a new tag, give it a class and append it to a parent.
 const createNode = (tag, className, parentNode) => {
@@ -42,9 +43,17 @@ const updateProfilePage = (username, date) => {
   createNode('button', 'follow-btn', document.querySelector('right-profile-section')).textContent = 'FOLLOW';
 };
 
+// function to create containers for each community and add their name
+// eslint-disable-next-line no-unused-vars
+const displayCommunityName = (names) => {
+  names.forEach((elem) => {
+    const communityNameBtn = createNode('a', 'community-name-btn', communitySection);
+    communityNameBtn.textContent = elem.community_name;
+    communityNameBtn.href = `/community/${elem.community_name}`;
+  });
+};
+
 searchBtn.addEventListener('click', getUserProfile);
-
-
 
 const signUpBtn = document.querySelector('#sign-up-btn');
 const signInBtn = document.querySelector('#sign-in-btn');
