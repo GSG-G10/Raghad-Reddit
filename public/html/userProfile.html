@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/home.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <title>Profile</title>
+  </head>
+  <body>
+    <header class="home-header">
+      <div class="logo-container">
+        <!-- <a href="../index.html"></a> -->
+        <img src="../image/reddit-logo.jpeg" alt="reddit logo" />
+        <h1>Raghad Redd <span>i</span> t</h1>
+      </div>
+
+      <label id="search-label">
+        <img
+          src="../image/search-icon.png"
+          alt="search icon"
+          class="search-icon"
+        />
+        <input type="search" placeholder="Search Reddit" id="search-input" />
+      </label>
+
+      <nav class="home-nav">
+        <button id="sign-in-btn">SIGN IN</button>
+        <button id="sign-up-btn">SIGN UP</button>
+      </nav>
+    </header>
+    <section class="filter-user">
+      <button autofocus>OVERVIEW</button>
+      <button>POSTS</button>
+      <button>COMMENTS</button>
+      <button>SAVED</button>
+    </section>
+    <section class="profile-container">
+      <section class="left-profile-section">
+        <section class="filter-post">
+          <button autofocus><i class="fas fa-certificate"></i> NEW</button>
+          <button><i class="fas fa-sort-amount-up"></i> Top</button>
+          <label class="time-filter-label">
+            <select name="time-filter" id="time-filter">
+              <option value="now">Now</option>
+              <option value="today">Today</option>
+              <option value="week">This week</option>
+              <option value="month">This month</option>
+              <option value="year">This year</option>
+              <option value="all">All time</option>
+            </select>
+          </label>
+        </section>
+        <section class="posts-container"></section>
+      </section>
+      <section class="right-profile-section">
+        <span class="blue-header"></span>
+        <img src="../image/user-img.png" alt="user profile image" />
+        <button class="change-pic"><i class="fas fa-camera"></i></button>
+        <p class="user-name"></p>
+        <p class="user-date"></p>
+        <button class="add-post-btn">NEW POST</button>
+      </section>
+    </section>
+
+    <script src="../javascript/dom.js"></script>
+    <script src="../javascript/fetch.js"></script>
+  </body>
+</html>

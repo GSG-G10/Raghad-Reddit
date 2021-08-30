@@ -74,3 +74,18 @@ const CreateCommentContainer = (userName, userImg, text, voteNum) => {
   const commentSave = createNode('button', 'comment-save', commentOpt);
   commentSave.textContent = 'Save';
 };
+
+const navBar = document.querySelector('.home-nav');
+
+const addUser = (username) => {
+  navBar.textContent = '';
+  createNode('button', 'sign-out-btn', navBar).textContent = 'SIGN OUT';
+  createNode('button', 'username-btn', navBar).textContent = username;
+};
+
+const updateProfilePage = (username, date) => {
+  document.querySelector('.user-name').textContent = username;
+  document.querySelector('.user-date').textContent = date;
+  document.querySelector('.add-post-btn');
+  createNode('button', 'follow-btn', document.querySelector('right-profile-section')).textContent = 'FOLLOW';
+}
