@@ -14,7 +14,7 @@ CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
     community_name TEXT NOT NULL,
     title VARCHAR(100) NOT NULL,
-    post_text TEXT,
+    post_text TEXT NOT NULL,
     vote INTEGER DEFAULT 0,
     post_date TIMESTAMP NOT NULL DEFAULT NOW(),
     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
@@ -22,7 +22,7 @@ CREATE TABLE posts (
 
 CREATE TABLE comments (
     id SERIAL PRIMARY KEY,
-    comment_text TEXT,
+    comment_text TEXT NOT NULL,
     vote INTEGER DEFAULT 0,
     comment_date TIMESTAMP NOT NULL DEFAULT NOW(),
     post_id INTEGER REFERENCES posts(id) ON DELETE CASCADE,
