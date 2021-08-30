@@ -47,7 +47,9 @@ const updateProfilePage = (username, date) => {
 // eslint-disable-next-line no-unused-vars
 const displayCommunityName = (names) => {
   names.forEach((elem) => {
-    createNode('a', 'community-name-btn', communitySection).textContent = elem.community_name;
+    const communityNameBtn = createNode('a', 'community-name-btn', communitySection);
+    communityNameBtn.textContent = elem.community_name;
+    communityNameBtn.href = `/community/${elem.community_name}`;
   });
 };
 
