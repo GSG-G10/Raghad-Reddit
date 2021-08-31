@@ -5,7 +5,6 @@ const fetchData = (endPoint, callback) => {
   fetch(endPoint)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       callback(data);
     });
 };

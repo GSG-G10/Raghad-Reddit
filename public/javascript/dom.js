@@ -65,14 +65,18 @@ const createPostContainer = (index, postId,
   time, title,
   postString,
   voteNum) => {
-  const postContainer = createNode('section', 'post-container', postsSection);
+  const postCommentContainer = createNode('section', 'post-comment-container', postsSection);
+  const postContainer = createNode('section', 'post-container', postCommentContainer);
+  const commentsSection = createNode('section', 'comments-section', postCommentContainer);
+  commentsSection.style.display = 'none';
+
   const postVote = createNode('section', 'post-vote-container', postContainer);
   const upVote = createNode('img', 'up-vote', postVote);
   const totalVotes = createNode('span', 'post-vote', postVote);
   totalVotes.textContent = voteNum;
   const downVote = createNode('img', 'down-vote', postVote);
-  upVote.src = '..//image//arrow.png';
-  downVote.src = '..//image//arrow.png';
+  upVote.src = '..//image//upvote.png';
+  downVote.src = '..//image//downvote.png';
   const post = createNode('section', 'post', postContainer);
   const userInfo = createNode('section', 'user-info', post);
   const userImage = createNode('img', 'user-info-img', userInfo);
@@ -81,9 +85,14 @@ const createPostContainer = (index, postId,
   } else {
     userImage.src = '..//image//user-img.png';
   }
-  const userInfoText = createNode('p', 'user-info-text', userInfo);
+  const userInfoText = createNode('a', 'post-community-name', userInfo);
   userInfoText.textContent = `${communityName} community`;
-  createNode('span', 'user-info-text', userInfoText).textContent = `Posted by ${userName} ${time}`;
+  userInfoText.href = `/community/${communityName}`;
+  createNode('span', 'user-info-text', userInfo).textContent = ' Posted by ';
+  const userNameA = createNode('a', 'post-user-name', userInfo);
+  userNameA.textContent = userName;
+  userNameA.href = `/users/${userName}`;
+  createNode('span', 'post-time', userInfo).textContent = time;
   const postText = createNode('section', 'post-text', post);
   const postTitle = createNode('h3', 'post-title', postText);
   postTitle.textContent = title;
@@ -91,13 +100,16 @@ const createPostContainer = (index, postId,
   postDescription.textContent = postString;
   const postOptions = createNode('section', 'post-options', post);
   const postComments = createNode('button', 'post-option', postOptions);
-  postComments.textContent = 'Comments';
+  postComments.textContent = 'comments';
+  const commentIcon = createNode('i', 'far', postComments);
+  commentIcon.classList.add('fa-comment-alt');
   postComments.addEventListener('click', () => { fetchComments(postId, index); });
-  const postSave = createNode('button', 'post-option', postOptions);
+  const saveForm = createNode('form', 'save-form', postOptions);
+  saveForm.action = '/save-post';
+  const postSave = createNode('button', 'post-option', saveForm);
   postSave.textContent = 'Save';
-  postSave.href = '/save';
-  const commentsSection = createNode('section', 'comments-section', postContainer);
-  commentsSection.style.display = 'none';
+  const saveIcon = createNode('i', 'far', postSave);
+  saveIcon.classList.add('fa-bookmark');
 };
 
 // function to display the post data
@@ -179,7 +191,6 @@ timeFilterSelect.addEventListener('change', () => {
   const { value } = timeFilterSelect;
   fetchData(`/top-${value}-posts`, displayPostData);
 });
-
 
 const signUpBtn = document.querySelector('#sign-up-btn');
 const signInBtn = document.querySelector('#sign-in-btn');
