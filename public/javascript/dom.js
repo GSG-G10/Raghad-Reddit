@@ -135,7 +135,7 @@ const displayPostData = (data) => {
 const CreateCommentContainer = (index, userName, time, userImg, text, voteNum) => {
   const commentContainer = createNode('section', 'comment-container', document.querySelectorAll('.comments-section')[index]);
   const userSection = createNode('section', 'comment-user-section', commentContainer);
-  const userImage = createNode('img', 'cpmment-user-img', userSection);
+  const userImage = createNode('img', 'comment-user-img', userSection);
   if (userImg) {
     userImage.src = userImg;
   } else {
@@ -153,14 +153,13 @@ const CreateCommentContainer = (index, userName, time, userImg, text, voteNum) =
   const totalVotes = createNode('span', 'comment-vote', commentOpt);
   totalVotes.textContent = voteNum;
   const downVote = createNode('img', 'down-vote', commentOpt);
-  upVote.src = './/image//arrow.png';
-  downVote.src = '..//image//arrow.png';
-  const commentSave = createNode('button', 'comment-save', commentOpt);
-  commentSave.textContent = 'Save';
+  upVote.src = './/image//upvote.png';
+  downVote.src = '..//image//downvote.png';
 };
 
 // function to display the comment data
 const displayCommentData = (data) => {
+  document.querySelector('.comments-section').textContent = '';
   data.forEach((element, index) => {
     CreateCommentContainer(
       index,

@@ -16,8 +16,8 @@ const {
   handleTopPosts,
   handleComments,
   handleSavePost,
-  upVotePost,
-  downVotePost,
+  handleUpVotePost,
+  handleDownVotePost,
 } = require('../controllers');
 
 router.use(cookieParse());
@@ -35,7 +35,7 @@ router.get('/top-year-posts', handleTopYearPosts);
 router.get('/top-all-posts', handleTopPosts);
 router.get('/comments/:postId', handleComments);
 router.get('/save-post/:postId', handleSavePost);
-router.get('/up-vote/:postId', upVotePost);
-router.get('/down-post/:postId', downVotePost);
+router.get('/up-vote/:postId', handleUpVotePost);
+router.get('/down-post/:postId', handleDownVotePost);
 
 module.exports = router;
