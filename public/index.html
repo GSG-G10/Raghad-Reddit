@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/home.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
     <title>Reddit</title>
   </head>
   <body>
@@ -32,27 +38,25 @@
     <section class="home-container">
       <section class="left-section">
         <section class="filtering-section">
-          <h2 class="section-title">Popular posts</h2>
-          <ul>
-            <li>New</li>
-            <li>Top</li>
-            <li>
-              <label class="time-filter-label">
-                <select name="time-filter" id="time-filter">
-                  <option value="now">Now</option>
-                  <option value="today">Today</option>
-                  <option value="week">This week</option>
-                  <option value="month">This month</option>
-                  <option value="year">This year</option>
-                  <option value="all">All time</option>
-                </select>
-              </label>
-            </li>
-          </ul>
+          <button class="filter-btn" autofocus>
+            <i class="fas fa-certificate"></i> NEW
+          </button>
+          <button class="filter-btn" id="top-btn">
+            <i class="fas fa-sort-amount-up"></i> Top
+          </button>
+          <label class="time-filter-label">
+            <select name="time-filter" id="time-filter">
+              <option value="now">Now</option>
+              <option value="today">Today</option>
+              <option value="week">This week</option>
+              <option value="month">This month</option>
+              <option value="year">This year</option>
+              <option value="all">All time</option>
+            </select>
+          </label>
         </section>
 
         <section class="posts-section"></section>
-        <i class="icon icon-upvote _2Jxk822qXs4DaXwsN7yyHA"></i>
       </section>
       <section class="right-section">
         <h5>Communities</h5>

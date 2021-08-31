@@ -41,9 +41,9 @@ INSERT INTO posts (id, community_name, title, post_text, vote, post_date, user_i
 INSERT INTO posts (id, community_name, title, post_text, vote, post_date, user_id) VALUES ('30', 'officia', 'Corrupti et illum dolorem architecto enim asperiores dolore.', 'Sed sit exercitationem sint saepe.', 0, '2020-09-08 04:59:54', 10);
 
 INSERT INTO comments (id, comment_text, vote, comment_date, post_id, user_id) VALUES ('1', 'Officiis minus blanditiis quis dolorem aliquid natus.', 0, '1995-04-27 22:00:53', 1, 1);
-INSERT INTO comments (id, comment_text, vote, comment_date, post_id, user_id) VALUES ('2', 'Harum unde a et ut hic maiores adipisci nihil.', 0, '2009-04-23 08:44:09', 2, 2);
-INSERT INTO comments (id, comment_text, vote, comment_date, post_id, user_id) VALUES ('3', 'Eos sint doloremque velit et.', 0, '1974-10-12 22:03:37', 3, 3);
-INSERT INTO comments (id, comment_text, vote, comment_date, post_id, user_id) VALUES ('4', 'Quod et aliquid nam cum.', 0, '1999-09-21 01:34:38', 4, 4);
+INSERT INTO comments (id, comment_text, vote, comment_date, post_id, user_id) VALUES ('2', 'Harum unde a et ut hic maiores adipisci nihil.', 0, '2009-04-23 08:44:09', 1, 2);
+INSERT INTO comments (id, comment_text, vote, comment_date, post_id, user_id) VALUES ('3', 'Eos sint doloremque velit et.', 0, '1974-10-12 22:03:37', 1, 3);
+INSERT INTO comments (id, comment_text, vote, comment_date, post_id, user_id) VALUES ('4', 'Quod et aliquid nam cum.', 0, '1999-09-21 01:34:38', 1, 4);
 INSERT INTO comments (id, comment_text, vote, comment_date, post_id, user_id) VALUES ('5', 'Nulla ut doloremque ipsum qui qui sed tempore aliquid.', 0, '2018-02-15 10:54:10', 5, 5);
 INSERT INTO comments (id, comment_text, vote, comment_date, post_id, user_id) VALUES ('6', 'Illum dolores facere praesentium porro quos fugit voluptatem.', 0, '2003-05-24 08:03:34', 6, 6);
 INSERT INTO comments (id, comment_text, vote, comment_date, post_id, user_id) VALUES ('7', 'Ducimus totam quis blanditiis beatae ratione voluptas.', 0, '1983-08-18 15:41:55', 7, 7);
