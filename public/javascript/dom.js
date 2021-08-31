@@ -69,12 +69,13 @@ const createPostContainer = (index, postId,
   const postContainer = createNode('section', 'post-container', postCommentContainer);
   const commentsSection = createNode('section', 'comments-section', postCommentContainer);
   commentsSection.style.display = 'none';
-
   const postVote = createNode('section', 'post-vote-container', postContainer);
   const upVote = createNode('img', 'up-vote', postVote);
+  upVote.onclick = () => { fetchData(`/up-vote/${postId}`, () => {}); };
   const totalVotes = createNode('span', 'post-vote', postVote);
   totalVotes.textContent = voteNum;
   const downVote = createNode('img', 'down-vote', postVote);
+  upVote.onclick = () => { fetchData(`/down-vote/${postId}`, () => {}); };
   upVote.src = '..//image//upvote.png';
   downVote.src = '..//image//downvote.png';
   const post = createNode('section', 'post', postContainer);

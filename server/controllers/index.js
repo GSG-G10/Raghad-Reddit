@@ -13,6 +13,8 @@ const handleTopYearPosts = require('./topYearPosts');
 const handleTopPosts = require('./topPosts');
 const handleComments = require('./comments');
 const handleSavePost = require('./savePost');
+const handleUpVotePost = require('./upVotePost');
+const handleDownVotePost = require('./downVotePost');
 
 module.exports = {
   handleSignUp,
@@ -30,4 +32,6 @@ module.exports = {
   handleTopPosts,
   handleComments,
   handleSavePost,
+  handleUpVotePost,
+  handleDownVotePost,
 };
