@@ -105,7 +105,7 @@ const createPostContainer = (index, postId,
   commentIcon.classList.add('fa-comment-alt');
   postComments.addEventListener('click', () => { fetchComments(postId, index); });
   const saveForm = createNode('form', 'save-form', postOptions);
-  saveForm.action = '/save-post';
+  saveForm.action = `/save-post/${postId}`;
   const postSave = createNode('button', 'post-option', saveForm);
   postSave.textContent = 'Save';
   const saveIcon = createNode('i', 'far', postSave);
