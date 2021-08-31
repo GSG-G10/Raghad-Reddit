@@ -29,7 +29,7 @@ router.get('/top-today-posts', handleTopTodayPosts);
 router.get('/top-week-posts', handleTopWeekPosts);
 router.get('/top-month-posts', handleTopMonthPosts);
 router.get('/top-year-posts', handleTopYearPosts);
-router.get('/top-posts', handleTopPosts);
+router.get('/top-all-posts', handleTopPosts);
 router.get('/comments/:postId', handleComments);
 
 module.exports = router;

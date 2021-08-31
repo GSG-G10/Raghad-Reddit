@@ -1,6 +1,14 @@
-fetch('/community')
-  .then((response) => response.json())
-  // eslint-disable-next-line no-undef
-  .then((names) => displayCommunityName(names));
+/* eslint-disable no-undef */
 
-fetch('/new-posts')
+// general fetch function
+const fetchData = (endPoint, callback) => {
+  fetch(endPoint)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      callback(data);
+    });
+};
+
+fetchData('/community', displayCommunityName);
+fetchData('/new-posts', displayPostData);
