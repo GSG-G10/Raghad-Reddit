@@ -5,6 +5,12 @@ const checkUser = require('./checkUser');
 const handleSignOut = require('./signOut');
 const handleCommunityNames = require('./communityName');
 const handleNewPosts = require('./newHomePosts');
+const handleTopNowPosts = require('./topNowPosts');
+const handleTopTodayPosts = require('./topTodayPosts');
+const handleTopWeekPosts = require('./topWeekPosts');
+const handleTopMonthPosts = require('./topMonthPosts');
+const handleTopYearPosts = require('./topYearPosts');
+const handleTopPosts = require('./topPosts');
 
 module.exports = {
   handleSignUp,
@@ -14,4 +20,10 @@ module.exports = {
   handleSignOut,
   handleCommunityNames,
   handleNewPosts,
+  handleTopNowPosts,
+  handleTopTodayPosts,
+  handleTopWeekPosts,
+  handleTopMonthPosts,
+  handleTopYearPosts,
+  handleTopPosts,
 };

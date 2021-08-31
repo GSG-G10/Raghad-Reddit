@@ -8,6 +8,12 @@ const {
   handleSignOut,
   handleCommunityNames,
   handleNewPosts,
+  handleTopNowPosts,
+  handleTopTodayPosts,
+  handleTopWeekPosts,
+  handleTopMonthPosts,
+  handleTopYearPosts,
+  handleTopPosts,
 } = require('../controllers');
 
 router.use(cookieParse());
@@ -17,5 +23,11 @@ router.get('/sign-out', handleSignOut);
 router.get('/check-user', checkUser);
 router.get('/community', handleCommunityNames);
 router.get('/new-posts', handleNewPosts);
+router.get('/top-now-posts', handleTopNowPosts);
+router.get('/top-today-posts', handleTopTodayPosts);
+router.get('/top-week-posts', handleTopWeekPosts);
+router.get('/top-month-posts', handleTopMonthPosts);
+router.get('/top-year-posts', handleTopYearPosts);
+router.get('/top-posts', handleTopPosts);
 
 module.exports = router;

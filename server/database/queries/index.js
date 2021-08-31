@@ -7,6 +7,7 @@ const getTopPostWeek = require('./getTopPostWeek');
 const getTopPostMonth = require('./getTopPostMonth');
 const getTopPostYear = require('./getTopPostYear');
 const getNewPosts = require('./getNewPosts');
+const getTopPosts = require('./getTopPosts');
 
 module.exports = {
   signUpQuery,
@@ -18,4 +19,5 @@ module.exports = {
   getTopPostYear,
   getTopPostMonth,
   getNewPosts,
+  getTopPosts,
 };
