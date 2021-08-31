@@ -6,6 +6,7 @@ const getCommunities = require('./getCommunities');
 const getTopPostWeek = require('./getTopPostWeek');
 const getTopPostMonth = require('./getTopPostMonth');
 const getTopPostYear = require('./getTopPostYear');
+const getNewPosts = require('./getNewPosts');
 
 module.exports = {
   signUpQuery,
@@ -16,4 +17,5 @@ module.exports = {
   getTopPostWeek,
   getTopPostYear,
   getTopPostMonth,
+  getNewPosts,
 };
