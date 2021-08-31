@@ -11,6 +11,7 @@ const handleTopWeekPosts = require('./topWeekPosts');
 const handleTopMonthPosts = require('./topMonthPosts');
 const handleTopYearPosts = require('./topYearPosts');
 const handleTopPosts = require('./topPosts');
+const handleComments = require('./comments');
 
 module.exports = {
   handleSignUp,
@@ -26,4 +27,5 @@ module.exports = {
   handleTopMonthPosts,
   handleTopYearPosts,
   handleTopPosts,
+  handleComments,
 };

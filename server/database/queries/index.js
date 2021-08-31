@@ -8,6 +8,7 @@ const getTopPostMonth = require('./getTopPostMonth');
 const getTopPostYear = require('./getTopPostYear');
 const getNewPosts = require('./getNewPosts');
 const getTopPosts = require('./getTopPosts');
+const getComments = require('./getComments');
 
 module.exports = {
   signUpQuery,
@@ -20,4 +21,5 @@ module.exports = {
   getTopPostMonth,
   getNewPosts,
   getTopPosts,
+  getComments,
 };
