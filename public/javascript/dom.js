@@ -34,6 +34,7 @@ const addUser = (username) => {
   signOut.href = '/sign-out';
 };
 
+
 // function to display some changes in other users profiles
 // const updateProfilePage = (username, date) => {
 //   document.querySelector('.user-name').textContent = username;

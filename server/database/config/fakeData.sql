@@ -92,16 +92,16 @@ INSERT INTO community (id, community_name, post_id) VALUES ('18', 'et', 18);
 INSERT INTO community (id, community_name, post_id) VALUES ('19', 'doloremque', 19);
 INSERT INTO community (id, community_name, post_id) VALUES ('20', 'odio', 20);
 
-INSERT INTO follower (id, follower_id, following_id) VALUES ('1', 1, 1);
-INSERT INTO follower (id, follower_id, following_id) VALUES ('2', 2, 2);
-INSERT INTO follower (id, follower_id, following_id) VALUES ('3', 3, 3);
-INSERT INTO follower (id, follower_id, following_id) VALUES ('4', 4, 4);
-INSERT INTO follower (id, follower_id, following_id) VALUES ('5', 5, 5);
-INSERT INTO follower (id, follower_id, following_id) VALUES ('6', 6, 6);
-INSERT INTO follower (id, follower_id, following_id) VALUES ('7', 7, 7);
-INSERT INTO follower (id, follower_id, following_id) VALUES ('8', 8, 8);
-INSERT INTO follower (id, follower_id, following_id) VALUES ('9', 9, 9);
-INSERT INTO follower (id, follower_id, following_id) VALUES ('10', 10, 10);
+INSERT INTO follower (id, follower_id, followed_id) VALUES ('1', 2, 1);
+INSERT INTO follower (id, follower_id, followed_id) VALUES ('2', 2, 2);
+INSERT INTO follower (id, follower_id, followed_id) VALUES ('3', 2, 3);
+INSERT INTO follower (id, follower_id, followed_id) VALUES ('4', 4, 4);
+INSERT INTO follower (id, follower_id, followed_id) VALUES ('5', 5, 5);
+INSERT INTO follower (id, follower_id, followed_id) VALUES ('6', 6, 2);
+INSERT INTO follower (id, follower_id, followed_id) VALUES ('7', 2, 7);
+INSERT INTO follower (id, follower_id, followed_id) VALUES ('8', 8, 2);
+INSERT INTO follower (id, follower_id, followed_id) VALUES ('9', 9, 2);
+INSERT INTO follower (id, follower_id, followed_id) VALUES ('10', 10, 10);
 
 INSERT INTO saved (id, post_id, user_id) VALUES ('1', 1, 1);
 INSERT INTO saved (id, post_id, user_id) VALUES ('2', 2, 2);

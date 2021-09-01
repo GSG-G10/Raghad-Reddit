@@ -21,6 +21,10 @@ const {
   handleUserProfile,
   handleProfileData,
   handleUserPost,
+  handleUserComment,
+  handleUserSaved,
+  handleUserFollower,
+  handleCreatePost,
 } = require('../controllers');
 
 router.use(cookieParse());
@@ -43,5 +47,8 @@ router.get('/down-post/:postId', handleDownVotePost);
 router.get('/user/:username', handleUserProfile);
 router.get('/user/:username/profile', handleProfileData);
 router.get('/all-post/:username', handleUserPost);
-
+router.get('/all-comment/:username', handleUserComment);
+router.get('/saved/:username', handleUserSaved);
+router.get('/follower/:username', handleUserFollower);
+router.post('/create-post/:username', handleCreatePost);
 module.exports = router;

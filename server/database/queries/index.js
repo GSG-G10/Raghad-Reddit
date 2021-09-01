@@ -14,6 +14,10 @@ const upVotePost = require('./upVotePost');
 const downVotePost = require('./downVotePost');
 const getUserData = require('./getUserData');
 const getUserAllPost = require('./getAllUserPost');
+const getUserAllComment = require('./getUserComments');
+const getUserFollower = require('./getUserFollower');
+const getUserSaved = require('./getUserSaved');
+const addPostData = require('./addPostData');
 
 module.exports = {
   signUpQuery,
@@ -32,4 +36,8 @@ module.exports = {
   downVotePost,
   getUserData,
   getUserAllPost,
+  getUserAllComment,
+  getUserFollower,
+  getUserSaved,
+  addPostData,
 };

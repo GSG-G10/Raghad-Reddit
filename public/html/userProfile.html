@@ -43,11 +43,10 @@
       </nav>
     </header>
     <section class="filter-user">
-      <button autofocus>POSTS</button>
-      <button>COMMENTS</button>
-      <button class="saved-btn">SAVED</button>
-      <button >FOLLOWER</button>
-
+      <button autofocus class="post-btn">POSTS</button>
+      <button class="comment-btn" >COMMENTS</button>
+      <button class="saved-btn" id="comment-btn">SAVED</button>
+      <button class="follower-btn" >FOLLOWER</button>
     </section>
     <section class="profile-container">
       <section class="left-profile-section">
@@ -74,6 +73,40 @@
         <p class="user-name"></p>
         <p class="user-date"></p>
         <button class="add-post-btn">NEW POST</button>
+        <form class="add-post-form" action="" method="POST">
+            <h2 class="sign-title">Add A new Post</h2>
+            <img src="./image/close.svg" alt="close icon" class="close-icon" />
+            <span class="error"></span>
+            <label for="community_name">Community Name :</label>
+            <input
+              type="text"
+              id="community_name"
+              name="community_name"
+              placeholder="Add The Community Name"
+              required
+            />
+            <label for="title">Title :</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              placeholder="Add a title for your post"
+              required
+            />
+    
+            <label for="description">Description :</label>
+            <input
+              type="text"
+              id="description"
+              name="description"
+              placeholder="Add a description for your post"
+              required
+            />
+    
+            <button type="submit" class="sign-btn">Create Post</button>
+          </form>
+
+        </form>
       </section>
     </section>
 
