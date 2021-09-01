@@ -11,6 +11,13 @@ const newBtn = document.querySelectorAll('.filter-btn')[0];
 const timeFilterLabel = document.querySelector('.time-filter-label');
 const timeFilterSelect = document.querySelector('#time-filter');
 const searchForrm = document.querySelector('.search-form');
+const signUpBtn = document.querySelector('#sign-up-btn');
+const signInBtn = document.querySelector('#sign-in-btn');
+const dropList = document.querySelector('.drop-list');
+const droplistBtn = document.querySelector('.drop-btn');
+const profileBtn = document.querySelector('.profile');
+const signOutBtn = document.querySelector('.sign-out');
+const homeBtn = document.querySelector('.home');
 
 // function to create a new tag, give it a class and append it to a parent.
 const createNode = (tag, className, parentNode) => {
@@ -22,18 +29,21 @@ const createNode = (tag, className, parentNode) => {
 
 // function to change sign up and sign in to username and its options
 const addUser = (username) => {
-  navBar.textContent = '';
-  const userNameBtn = createNode('button', 'username-btn', navBar);
-  userNameBtn.textContent = username;
-  const dropList = createNode('div', 'drop-list', navBar);
-  const profile = createNode('a', 'profile', dropList);
-  profile.textContent = 'Profile';
-  profile.href = `/user/${username}`;
-  const signOut = createNode('a', 'sign-out', dropList);
-  signOut.textContent = 'Sign out';
-  signOut.href = '/sign-out';
+  signInBtn.style.display = 'none';
+  signUpBtn.style.display = 'none';
+  droplistBtn.style.visibility = 'visible';
+  createNode('i', 'far', droplistBtn).classList.add('fa-user');
+  createNode('span', 'nav-user-name', droplistBtn).textContent = username;
+  createNode('i', 'fas', droplistBtn).classList.add('fa-sort-down');
+  droplistBtn.onclick = () => {
+    droplistBtn.classList.toggle('dropped');
+    dropList.classList.toggle('show');
+  };
+  profileBtn.href = `/user/${username}`;
+  signOutBtn.href = '/sign-out';
+  homeBtn.href = '/';
+  navBar.style.flexDirection = 'column';
 };
-
 
 // function to display some changes in other users profiles
 // const updateProfilePage = (username, date) => {
@@ -193,8 +203,6 @@ timeFilterSelect.addEventListener('change', () => {
   fetchData(`/top-${value}-posts`, displayPostData);
 });
 
-const signUpBtn = document.querySelector('#sign-up-btn');
-const signInBtn = document.querySelector('#sign-in-btn');
 const signPopUp = document.querySelectorAll('.sign-popup');
 const closeIcon = document.querySelectorAll('.close-icon');
 const openForm = (i) => {
