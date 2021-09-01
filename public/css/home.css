@@ -514,3 +514,6 @@ body {
 .comment-vote{
   margin: 0 20px;
 }
+.add-post-form{
+  display: none;
+}

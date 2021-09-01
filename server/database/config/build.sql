@@ -43,8 +43,8 @@ CREATE TABLE saved (
 
 CREATE TABLE follower (
     id SERIAL PRIMARY KEY,
-    follower_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-    following_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+    followed_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    follower_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
 
 COMMIT;
