@@ -585,3 +585,42 @@ body {
 .dropped {
   border-radius: 15px 15px 0 0px;
 }
+.reply-form {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 6vh;
+  background-color: #f6f7f8;
+  border: 1px solid #edeff1;
+  align-items: center;
+  border-radius: 4px;
+}
+.reply-input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  background-color: #f6f7f8;
+  text-indent: 30px;
+}
+.reply-label {
+  width: 83%;
+  height: 100%;
+}
+.reply-form img {
+  width: 2%;
+  margin-left: 3%;
+}
+.reply-button {
+  width: 13%;
+  background-color: #f6f7f8;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #7f7d7d;
+  font-weight: bold;
+  height: 100%;
+}
+.reply-button:hover {
+  background-color: #dfe1e2;
+}

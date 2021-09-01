@@ -22,6 +22,7 @@ const handleUserComment = require('./userAllComment');
 const handleUserFollower = require('./userFollower');
 const handleUserSaved = require('./userSaved');
 const handleCreatePost = require('./createPost');
+const handleAddComment = require('./addComment');
 
 module.exports = {
   handleSignUp,
@@ -48,4 +49,5 @@ module.exports = {
   handleUserFollower,
   handleUserSaved,
   handleCreatePost,
+  handleAddComment,
 };

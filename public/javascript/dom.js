@@ -77,11 +77,19 @@ const createPostContainer = (index, postId,
   commentsSection.style.display = 'none';
   const postVote = createNode('section', 'post-vote-container', postContainer);
   const upVote = createNode('img', 'up-vote', postVote);
-  upVote.onclick = () => { fetchData(`/up-vote/${postId}`, () => {}); };
+  upVote.onclick = () => {
+    fetch(`/up-vote/${postId}`).then(() => {
+      window.location.reload();
+    });
+  };
   const totalVotes = createNode('span', 'post-vote', postVote);
   totalVotes.textContent = voteNum;
   const downVote = createNode('img', 'down-vote', postVote);
-  upVote.onclick = () => { fetchData(`/down-vote/${postId}`, () => {}); };
+  downVote.onclick = () => {
+    fetch(`/down-vote/${postId}`).then(() => {
+      window.location.reload();
+    });
+  };
   upVote.src = '..//image//upvote.png';
   downVote.src = '..//image//downvote.png';
   const post = createNode('section', 'post', postContainer);
@@ -117,6 +125,30 @@ const createPostContainer = (index, postId,
   postSave.textContent = 'Save';
   const saveIcon = createNode('i', 'far', postSave);
   saveIcon.classList.add('fa-bookmark');
+  const postReply = createNode('button', 'post-option', postOptions);
+  postReply.textContent = 'Reply';
+  const replyIcon = createNode('i', 'far', postReply);
+  replyIcon.classList.add('fa-comment-dots');
+  postReply.onclick = () => {
+    const replyForm = createNode('form', 'reply-form', postCommentContainer);
+    const close = createNode('img', 'close', replyForm);
+    close.src = './/image//close.svg';
+    close.alt = 'close icon';
+    const label = createNode('label', 'reply-label', replyForm);
+    label.for = 'reply';
+    const input = createNode('input', 'reply-input', label);
+    input.type = 'text';
+    input.id = 'reply';
+    input.name = 'reply';
+    input.required = 'required';
+    input.placeholder = 'Add your comment';
+    const button = createNode('button', 'reply-button', replyForm);
+    button.type = 'submit';
+    button.textContent = 'Reply';
+    replyForm.method = 'POST';
+    replyForm.action = `/add-comment/${postId}`;
+    close.onclick = () => { replyForm.style.display = 'none'; };
+  };
 };
 
 // function to display the post data
@@ -139,6 +171,9 @@ const displayPostData = (data) => {
 
 // function to create a contauner for comments
 const CreateCommentContainer = (index, userName, time, userImg, text, voteNum) => {
+  if (document.querySelector('.reply-form')) {
+    document.querySelector('.reply-form').style.display = 'none';
+  }
   const commentContainer = createNode('section', 'comment-container', document.querySelectorAll('.comments-section')[index]);
   const userSection = createNode('section', 'comment-user-section', commentContainer);
   const userImage = createNode('img', 'comment-user-img', userSection);

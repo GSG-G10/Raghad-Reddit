@@ -18,6 +18,7 @@ const getUserAllComment = require('./getUserComments');
 const getUserFollower = require('./getUserFollower');
 const getUserSaved = require('./getUserSaved');
 const addPostData = require('./addPostData');
+const addComment = require('./addComment');
 
 module.exports = {
   signUpQuery,
@@ -40,4 +41,5 @@ module.exports = {
   getUserFollower,
   getUserSaved,
   addPostData,
+  addComment,
 };
