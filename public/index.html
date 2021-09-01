@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/home.css" />
+    <link rel="shortcut icon"
+        href="https://www.reddiquette.com/wp-content/uploads/2020/09/What-Is-The-Reddit-Logo-Called.png" />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
@@ -20,14 +22,18 @@
         <h1>Raghad Redd <span>i</span> t</h1>
       </div>
 
-      <label id="search-label">
-        <img
-          src="./image/search-icon.png"
-          alt="search icon"
-          class="search-icon"
-        />
-        <input type="search" placeholder="Search Reddit" id="search-input" />
-      </label>
+      <form class="search-form">
+        <label id="search-label">
+          <input type="search" placeholder="Search Reddit" id="search-input" />
+        </label>
+        <button type="submit">
+          <img
+            src="../image/search-icon.png"
+            alt="search icon"
+            class="search-icon"
+          />
+        </button>
+      </form>
 
       <nav class="home-nav">
         <button id="sign-in-btn">SIGN IN</button>

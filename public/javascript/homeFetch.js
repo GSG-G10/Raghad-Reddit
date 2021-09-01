@@ -4,9 +4,7 @@
 const fetchData = (endPoint, callback) => {
   fetch(endPoint)
     .then((response) => response.json())
-    .then((data) => {
-      callback(data);
-    });
+    .then((data) => callback(data));
 };
 
 fetchData('/community', displayCommunityName);

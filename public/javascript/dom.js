@@ -10,6 +10,7 @@ const topBtn = document.querySelector('#top-btn');
 const newBtn = document.querySelectorAll('.filter-btn')[0];
 const timeFilterLabel = document.querySelector('.time-filter-label');
 const timeFilterSelect = document.querySelector('#time-filter');
+const searchForrm = document.querySelector('.search-form');
 
 // function to create a new tag, give it a class and append it to a parent.
 const createNode = (tag, className, parentNode) => {
@@ -33,20 +34,14 @@ const addUser = (username) => {
   signOut.href = '/sign-out';
 };
 
-// function to get input value and run fetch function
-const getUserProfile = () => {
-  const inputValue = searchInput.value.trim();
-  fetchUserProfile(inputValue);
-};
-
 // function to display some changes in other users profiles
-const updateProfilePage = (username, date) => {
-  document.querySelector('.user-name').textContent = username;
-  document.querySelector('.user-date').textContent = date;
-  document.querySelector('.add-post-btn').style.display = 'none';
-  document.querySelector('.saved-btn').style.display = 'none';
-  createNode('button', 'follow-btn', document.querySelector('right-profile-section')).textContent = 'FOLLOW';
-};
+// const updateProfilePage = (username, date) => {
+//   document.querySelector('.user-name').textContent = username;
+//   document.querySelector('.user-date').textContent = date;
+//   document.querySelector('.add-post-btn').style.display = 'none';
+//   document.querySelector('.saved-btn').style.display = 'none';
+//   createNode('button', 'follow-btn', document.querySelector('right-profile-section')).textContent = 'FOLLOW';
+// };
 
 // function to create containers for each community and add their name
 const displayCommunityName = (names) => {
@@ -184,7 +179,12 @@ const displayFilterLabel = () => {
   fetchData('/top-now-posts', displayPostData);
 };
 
-searchBtn.addEventListener('click', getUserProfile);
+// searchBtn.addEventListener('click', getUserProfile);
+searchForrm.onsubmit = () => {
+  const searchedValue = searchInput.value.trim();
+  searchForrm.action = `/user/${searchedValue}`;
+};
+
 newBtn.addEventListener('click', () => { fetchData('/new-posts', displayPostData); });
 topBtn.addEventListener('click', displayFilterLabel);
 timeFilterSelect.addEventListener('change', () => {

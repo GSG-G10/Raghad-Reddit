@@ -15,6 +15,9 @@ const handleComments = require('./comments');
 const handleSavePost = require('./savePost');
 const handleUpVotePost = require('./upVotePost');
 const handleDownVotePost = require('./downVotePost');
+const handleUserProfile = require('./userProfile');
+const handleProfileData = require('./userProfileData');
+const handleUserPost = require('./userAllPost');
 
 module.exports = {
   handleSignUp,
@@ -34,4 +37,7 @@ module.exports = {
   handleSavePost,
   handleUpVotePost,
   handleDownVotePost,
+  handleUserProfile,
+  handleProfileData,
+  handleUserPost,
 };
