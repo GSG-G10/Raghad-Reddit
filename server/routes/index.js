@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const cookieParse = require('cookie-parser');
+const { authentication } = require('../utils');
 const {
   handleSignUp,
   handleSignIn,
@@ -41,14 +42,14 @@ router.get('/top-month-posts', handleTopMonthPosts);
 router.get('/top-year-posts', handleTopYearPosts);
 router.get('/top-all-posts', handleTopPosts);
 router.get('/comments/:postId', handleComments);
-router.get('/save-post/:postId', handleSavePost);
-router.get('/up-vote/:postId', handleUpVotePost);
-router.get('/down-post/:postId', handleDownVotePost);
+router.get('/save-post/:postId', authentication, handleSavePost);
+router.get('/up-vote/:postId', authentication, handleUpVotePost);
+router.get('/down-post/:postId', authentication, handleDownVotePost);
 router.get('/user/:username', handleUserProfile);
 router.get('/user/:username/profile', handleProfileData);
 router.get('/all-post/:username', handleUserPost);
 router.get('/all-comment/:username', handleUserComment);
-router.get('/saved/:username', handleUserSaved);
+router.get('/saved', authentication, handleUserSaved);
 router.get('/follower/:username', handleUserFollower);
-router.post('/create-post/:username', handleCreatePost);
+router.post('/create-post', authentication, handleCreatePost);
 module.exports = router;
