@@ -67,16 +67,22 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  text-decoration: none;
 }
 #sign-up-btn {
   background-color: #0079d3;
   color: white;
   border-radius: 50px;
   width: 45%;
-  height: 90%;
+  height: 100%;
   border: none;
   font-weight: bolder;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .85rem;
+  text-decoration: none;
 }
 #sign-in-btn {
   color: #0079d3;
@@ -84,9 +90,14 @@ body {
   background-color: white;
   border-radius: 50px;
   width: 45%;
-  height: 90%;
+  height: 100%;
   font-weight: bolder;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .85rem;
+  text-decoration: none;
 }
 .home-container {
   min-height: 100vh;
