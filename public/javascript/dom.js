@@ -18,6 +18,8 @@ const droplistBtn = document.querySelector('.drop-btn');
 const profileBtn = document.querySelector('.profile');
 const signOutBtn = document.querySelector('.sign-out');
 const homeBtn = document.querySelector('.home');
+const changeBtn = document.querySelector('#file');
+const userProfilePic = document.querySelector('.user-profile-img');
 
 // function to create a new tag, give it a class and append it to a parent.
 const createNode = (tag, className, parentNode) => {
@@ -223,6 +225,18 @@ const fetchComments = (postId, index) => {
 const displayFilterLabel = () => {
   timeFilterLabel.style.display = 'block';
   fetchData('/top-now-posts', displayPostData);
+};
+
+const loadFile = (event) => {
+  userProfilePic.src = URL.createObjectURL(event.target.files[0]);
+  const url = userProfilePic.src;
+  const username = window.location.pathname.split('/')[2];
+  const a = `/change-pic/${username}/${url}`;
+  fetch(a);
+};
+
+changeBtn.onchange = (event) => {
+  loadFile(event);
 };
 
 // searchBtn.addEventListener('click', getUserProfile);

@@ -23,6 +23,7 @@ const handleUserFollower = require('./userFollower');
 const handleUserSaved = require('./userSaved');
 const handleCreatePost = require('./createPost');
 const handleAddComment = require('./addComment');
+const handleChangePic = require('./changePic');
 
 module.exports = {
   handleSignUp,
@@ -50,4 +51,5 @@ module.exports = {
   handleUserSaved,
   handleCreatePost,
   handleAddComment,
+  handleChangePic,
 };

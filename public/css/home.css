@@ -317,6 +317,9 @@ body {
   right: 180px;
   border: 1px solid #2c79d3;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .fa-camera {
   color: #0079d3;
@@ -623,4 +626,7 @@ body {
 }
 .reply-button:hover {
   background-color: #dfe1e2;
+}
+#file{
+  display: none;
 }

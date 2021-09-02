@@ -26,6 +26,7 @@ const {
   handleUserFollower,
   handleCreatePost,
   handleAddComment,
+  handleChangePic,
 } = require('../controllers');
 
 router.use(cookieParse());
@@ -53,5 +54,6 @@ router.get('/saved/:username', handleUserSaved);
 router.get('/follower/:username', handleUserFollower);
 router.post('/create-post/:username', handleCreatePost);
 router.post('/add-comment/:postId', handleAddComment);
+router.get('/change-pic/:username/:url', handleChangePic);
 
 module.exports = router;
