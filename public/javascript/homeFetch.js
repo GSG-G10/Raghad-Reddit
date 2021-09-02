@@ -1,11 +1,6 @@
 /* eslint-disable no-undef */
-
-// general fetch function
-const fetchData = (endPoint, callback) => {
-  fetch(endPoint)
-    .then((response) => response.json())
-    .then((data) => callback(data));
-};
-
 fetchData('/community', displayCommunityName);
-fetchData('/new-posts', displayPostData);
+fetchData('/new-posts', (data) => {
+  newBtn.style.color = '#0079d3';
+  displayPostData(data);
+});

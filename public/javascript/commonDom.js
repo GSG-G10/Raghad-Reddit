@@ -21,8 +21,22 @@ const homeBtn = document.querySelector('.home');
 const changeBtn = document.querySelector('#file');
 const userProfilePic = document.querySelector('.user-profile-img');
 const changePicForm = document.querySelector('.change-pic-form');
+const commentBtn = document.querySelector('.comment-btn');
+const postBtn = document.querySelector('.post-btn');
+const saveBtn = document.querySelector('.saved-btn');
+const followerBtn = document.querySelector('.follower-btn');
+const createPostBtn = document.querySelector('.add-post-btn');
+const createPostForm = document.querySelector('.add-post-form');
+const closeBtn = document.querySelector('.close-icon');
+const profileContainer = document.querySelector('.profile-container');
+const filterUser = document.querySelector('.filter-user');
+const userNameContainer = document.querySelector('.user-name');
+const UserDate = document.querySelector('.user-date');
+const addPostBtn = document.querySelector('.add-post-btn');
+const savedBtn = document.querySelector('.saved-btn');
+const profileSection = document.querySelector('.right-profile-section');
 
-// function to create a new tag, give it a class and append it to a parent.
+// general function to create a new tag, give it a class and append it to a parent.
 const createNode = (tag, className, parentNode) => {
   const tagName = document.createElement(tag);
   tagName.classList.add(className);
@@ -30,7 +44,7 @@ const createNode = (tag, className, parentNode) => {
   return tagName;
 };
 
-// function to change sign up and sign in to username and its options
+// function to change sign up and sign in to user profile options
 const addUser = (username) => {
   signInBtn.style.display = 'none';
   signUpBtn.style.display = 'none';
@@ -48,32 +62,23 @@ const addUser = (username) => {
   navBar.style.flexDirection = 'column';
 };
 
-// function to display some changes in other users profiles
-// const updateProfilePage = (username, date) => {
-//   document.querySelector('.user-name').textContent = username;
-//   document.querySelector('.user-date').textContent = date;
-//   document.querySelector('.add-post-btn').style.display = 'none';
-//   document.querySelector('.saved-btn').style.display = 'none';
-//   createNode('button', 'follow-btn', document.querySelector('right-profile-section')).textContent = 'FOLLOW';
-// };
-
-// function to create containers for each community and add their name
-const displayCommunityName = (names) => {
-  names.forEach((elem) => {
-    const communityNameBtn = createNode('a', 'community-name-btn', communitySection);
-    communityNameBtn.textContent = elem.community_name;
-    communityNameBtn.href = `/community/${elem.community_name}`;
-  });
+// function to fetch users profiles when search by their username
+searchForrm.onsubmit = () => {
+  const searchedValue = searchInput.value.trim();
+  searchForrm.action = `/user/${searchedValue}`;
 };
 
 // function to create a container for a post
-const createPostContainer = (index, postId,
+const createPostContainer = (
+  index,
+  postId,
   communityName,
   userName,
   userImg,
   time, title,
   postString,
-  voteNum) => {
+  voteNum,
+) => {
   const postCommentContainer = createNode('section', 'post-comment-container', postsSection);
   const postContainer = createNode('section', 'post-container', postCommentContainer);
   const commentsSection = createNode('section', 'comments-section', postCommentContainer);
@@ -172,7 +177,7 @@ const displayPostData = (data) => {
   });
 };
 
-// function to create a contauner for comments
+// function to create a container for comments
 const CreateCommentContainer = (index, userName, time, userImg, text, voteNum) => {
   if (document.querySelector('.reply-form')) {
     document.querySelector('.reply-form').style.display = 'none';
@@ -221,29 +226,3 @@ const fetchComments = (postId, index) => {
   document.querySelectorAll('.comments-section')[index].style.display = 'block';
   fetchData(`/comments/${postId}`, displayCommentData);
 };
-
-// function to show date filter label and fetch now posts
-const displayFilterLabel = () => {
-  timeFilterLabel.style.display = 'block';
-  fetchData('/top-now-posts', displayPostData);
-};
-
-changeBtn.onchange = (event) => {
-  userProfilePic.src = URL.createObjectURL(event.target.files[0]);
-  const urlInput = document.querySelector('.url-input')
-  urlInput.value = URL.createObjectURL(event.target.files[0]) + '.' + event.target.files[0].type.split('/')[1]
-  changePicForm.submit();
-};
-
-// searchBtn.addEventListener('click', getUserProfile);
-searchForrm.onsubmit = () => {
-  const searchedValue = searchInput.value.trim();
-  searchForrm.action = `/user/${searchedValue}`;
-};
-
-newBtn.addEventListener('click', () => { fetchData('/new-posts', displayPostData); });
-topBtn.addEventListener('click', displayFilterLabel);
-timeFilterSelect.addEventListener('change', () => {
-  const { value } = timeFilterSelect;
-  fetchData(`/top-${value}-posts`, displayPostData);
-});

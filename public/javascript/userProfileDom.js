@@ -1,20 +1,35 @@
-// function to get input value and run fetch function
-// const getUserProfile = () => {
-//   const inputValue = searchInput.value.trim();
-//   fetch('check-user').then(response => response.json())
-//   .then((username) => {
-//     if(inputValue = username){
-//       fetch()
-//     }
-//   })
-//   // fetchUserProfile(inputValue);
-// };
+/* eslint-disable no-undef */
+// events to show and hide create post form
 
-// function to display some changes in other users profiles
-// const updateProfilePage = (username, date) => {
-//   document.querySelector('.user-name').textContent = username;
-//   document.querySelector('.user-date').textContent = date;
-//   document.querySelector('.add-post-btn').style.display = 'none';
-//   document.querySelector('.saved-btn').style.display = 'none';
-//   createNode('button', 'follow-btn', document.querySelector('right-profile-section')).textContent = 'FOLLOW';
-// };
+const endPoint = window.location.pathname;
+const searchedUsername = endPoint.split('/')[2];
+
+// events to show and hide create post form
+createPostBtn.onclick = () => {
+  createPostForm.style.display = 'block';
+};
+closeBtn.onclick = () => {
+  createPostForm.style.display = 'none';
+};
+
+// events to fetch each profile buttons data
+fetchData(`/all-post/${searchedUsername}`, displayPostData);
+postBtn.onclick = () => {
+  fetchData(`/all-post/${searchedUsername}`, displayPostData);
+};
+commentBtn.onclick = () => {
+  fetchData(`/all-comment/${searchedUsername}`);
+};
+saveBtn.onclick = () => {
+  fetchData('/saved');
+};
+followerBtn.onclick = () => {
+  fetchData(`/follower/${searchedUsername}`);
+};
+
+// function to submit change profile img form
+changeBtn.onchange = (event) => {
+  userProfilePic.src = URL.createObjectURL(event.target.files[0]);
+  userProfilePic.value = URL.createObjectURL(event.target.files[0]);
+  changePicForm.submit();
+};
