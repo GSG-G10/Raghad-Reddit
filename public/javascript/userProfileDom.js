@@ -6,10 +6,11 @@ const searchedUsername = endPoint.split('/')[2];
 
 // events to show and hide create post form
 createPostBtn.onclick = () => {
-  createPostForm.style.display = 'block';
+  createPostForm.style.visibility = 'visible';
+  createPostForm.scrollIntoView();
 };
 closeBtn.onclick = () => {
-  createPostForm.style.display = 'none';
+  createPostForm.style.visibility = 'hidden';
 };
 
 // events to fetch each profile buttons data
