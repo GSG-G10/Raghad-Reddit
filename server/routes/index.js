@@ -56,7 +56,7 @@ router.get('/saved/:username', handleUserSaved);
 router.get('/follower/:username', handleUserFollower);
 router.post('/create-post/:username', handleCreatePost);
 router.post('/add-comment/:postId', handleAddComment);
-router.get('/change-pic/:username/:url', handleChangePic);
+router.post('/change-pic', handleChangePic);
 router.use(handleErrorNotFound);
 router.use(handleServerError);
 

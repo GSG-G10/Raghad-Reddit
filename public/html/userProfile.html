@@ -75,10 +75,14 @@
       <section class="right-profile-section">
         <span class="blue-header"></span>
         <img class="user-profile-img" src="../image/user-img.png" alt="user profile image" />
-        <label for="file" class="change-pic">
-          <i class="fas fa-camera"></i>
-          <input type="file" accept="image/*" name="image" id="file">
-        </label>
+        <form action="/change-pic" method="POST" class="change-pic-form">
+          <input type="text" class="url-input" name="url">
+          <label for="file" class="change-pic">
+            <i class="fas fa-camera"></i>
+            <input type="file" accept="image/*" name="img" id="file">
+          </label>
+        </form>
+
         <p class="user-name"></p>
         <p class="user-date"></p>
         <button class="add-post-btn">NEW POST</button>

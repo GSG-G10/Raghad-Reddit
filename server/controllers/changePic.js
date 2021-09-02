@@ -1,8 +1,8 @@
 const { changePic } = require('../database/queries');
 
 module.exports = (req, res) => {
-    console.log('hi')
-//   const { username, url } = req.params;
-//   changePic(username, url).then(console.log)
-    // .then(() => res.send());
+  const { url } = req.body;
+  const { username } = res;
+  changePic(username, url)
+    .then(() => res.redirect('/'));
 };
