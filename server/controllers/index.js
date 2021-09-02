@@ -22,6 +22,8 @@ const handleUserComment = require('./userAllComment');
 const handleUserFollower = require('./userFollower');
 const handleUserSaved = require('./userSaved');
 const handleCreatePost = require('./createPost');
+const handleServerError = require('./serverError');
+const handleErrorNotFound = require('./errorNotFound');
 
 module.exports = {
   handleSignUp,
@@ -48,4 +50,6 @@ module.exports = {
   handleUserFollower,
   handleUserSaved,
   handleCreatePost,
+  handleErrorNotFound,
+  handleServerError,
 };

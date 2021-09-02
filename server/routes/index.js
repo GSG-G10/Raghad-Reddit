@@ -26,6 +26,8 @@ const {
   handleUserSaved,
   handleUserFollower,
   handleCreatePost,
+  handleErrorNotFound,
+  handleServerError,
 } = require('../controllers');
 
 router.use(cookieParse());
@@ -52,4 +54,7 @@ router.get('/all-comment/:username', handleUserComment);
 router.get('/saved', authentication, handleUserSaved);
 router.get('/follower/:username', handleUserFollower);
 router.post('/create-post', authentication, handleCreatePost);
+router.use(handleErrorNotFound);
+router.use(handleServerError);
+
 module.exports = router;
