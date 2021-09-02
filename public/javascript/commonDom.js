@@ -142,7 +142,7 @@ const createPostContainer = (
   totalVotes.textContent = voteNum;
   const downVote = createNode('img', 'down-vote', postVote);
   downVote.onclick = () => {
-    fetch(`/down-vote/${postId}`, () => {
+    fetchData(`/down-vote/${postId}`, () => {
       window.location.reload();
     });
   };

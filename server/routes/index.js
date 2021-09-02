@@ -48,7 +48,7 @@ router.get('/top-all-posts', handleTopPosts);
 router.get('/comments/:postId', handleComments);
 router.get('/save-post/:postId', authentication, handleSavePost);
 router.get('/up-vote/:postId', authentication, handleUpVotePost);
-router.get('/down-post/:postId', authentication, handleDownVotePost);
+router.get('/down-vote/:postId', authentication, handleDownVotePost);
 router.get('/user/:username', handleUserProfile);
 router.get('/user/:username/profile', handleProfileData);
 router.get('/all-post/:username', handleUserPost);
