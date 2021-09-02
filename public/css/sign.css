@@ -1,0 +1,69 @@
+.sign-form {
+  margin: 8vh auto;
+  width: 48%;
+  height: 75vh;
+  background-color: white;
+  box-shadow: 1px 1px 8px #a9adb1;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+}
+.sign-title {
+  text-align: center;
+  font-weight: 400;
+  font-family: "Acme", sans-serif;
+  margin-left: 10%;
+}
+.sign-form label {
+  width: 50%;
+  margin-left: 10%;
+  display: flex;
+  flex-direction: column;
+  text-indent: 10px;
+}
+.sign-form input {
+  width: 100%v;
+  height: 6vh;
+  border-radius: 50px;
+  text-indent: 20px;
+  outline: none;
+  border: 1px solid grey;
+  margin: 8px 0 0 0;
+}
+.sign-form button {
+  width: 50%;
+  height: 7vh;
+  margin-left: 10%;
+  background-color: #f44312;
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  color: rgb(236, 233, 233);
+  font-weight: bold;
+  font-size: 1rem;
+}
+#orange-line {
+  background-color: #f44312;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20%;
+  height: 100%;
+  border-radius: 6px 0 0 6px;
+}
+.sign-form p {
+  text-align: center;
+  margin-left: 10%;
+}
+.sign-form p a {
+  color: #2c79d3;
+}
+.error {
+  color: #ab1f1f;
+  display: none;
+  margin-left: 10%;
+}

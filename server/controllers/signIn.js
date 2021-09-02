@@ -14,7 +14,7 @@ module.exports = (req, res, next) => {
           next();
         } else {
           res.cookie('error', 'You\'ve entered a wrong password');
-          res.redirect('/');
+          res.redirect('/html/signIn.html');
         }
       });
     }
