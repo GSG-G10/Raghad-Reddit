@@ -11,6 +11,16 @@ const newBtn = document.querySelectorAll('.filter-btn')[0];
 const timeFilterLabel = document.querySelector('.time-filter-label');
 const timeFilterSelect = document.querySelector('#time-filter');
 const searchForrm = document.querySelector('.search-form');
+const signUpBtn = document.querySelector('#sign-up-btn');
+const signInBtn = document.querySelector('#sign-in-btn');
+const dropList = document.querySelector('.drop-list');
+const droplistBtn = document.querySelector('.drop-btn');
+const profileBtn = document.querySelector('.profile');
+const signOutBtn = document.querySelector('.sign-out');
+const homeBtn = document.querySelector('.home');
+const changeBtn = document.querySelector('#file');
+const userProfilePic = document.querySelector('.user-profile-img');
+const changePicForm = document.querySelector('.change-pic-form');
 
 // function to create a new tag, give it a class and append it to a parent.
 const createNode = (tag, className, parentNode) => {
@@ -22,18 +32,21 @@ const createNode = (tag, className, parentNode) => {
 
 // function to change sign up and sign in to username and its options
 const addUser = (username) => {
-  navBar.textContent = '';
-  const userNameBtn = createNode('button', 'username-btn', navBar);
-  userNameBtn.textContent = username;
-  const dropList = createNode('div', 'drop-list', navBar);
-  const profile = createNode('a', 'profile', dropList);
-  profile.textContent = 'Profile';
-  profile.href = `/user/${username}`;
-  const signOut = createNode('a', 'sign-out', dropList);
-  signOut.textContent = 'Sign out';
-  signOut.href = '/sign-out';
+  signInBtn.style.display = 'none';
+  signUpBtn.style.display = 'none';
+  droplistBtn.style.visibility = 'visible';
+  createNode('i', 'far', droplistBtn).classList.add('fa-user');
+  createNode('span', 'nav-user-name', droplistBtn).textContent = username;
+  createNode('i', 'fas', droplistBtn).classList.add('fa-sort-down');
+  droplistBtn.onclick = () => {
+    droplistBtn.classList.toggle('dropped');
+    dropList.classList.toggle('show');
+  };
+  profileBtn.href = `/user/${username}`;
+  signOutBtn.href = '/sign-out';
+  homeBtn.href = '/';
+  navBar.style.flexDirection = 'column';
 };
-
 
 // function to display some changes in other users profiles
 // const updateProfilePage = (username, date) => {
@@ -67,11 +80,19 @@ const createPostContainer = (index, postId,
   commentsSection.style.display = 'none';
   const postVote = createNode('section', 'post-vote-container', postContainer);
   const upVote = createNode('img', 'up-vote', postVote);
-  upVote.onclick = () => { fetchData(`/up-vote/${postId}`, () => {}); };
+  upVote.onclick = () => {
+    fetch(`/up-vote/${postId}`).then(() => {
+      window.location.reload();
+    });
+  };
   const totalVotes = createNode('span', 'post-vote', postVote);
   totalVotes.textContent = voteNum;
   const downVote = createNode('img', 'down-vote', postVote);
-  upVote.onclick = () => { fetchData(`/down-vote/${postId}`, () => {}); };
+  downVote.onclick = () => {
+    fetch(`/down-vote/${postId}`).then(() => {
+      window.location.reload();
+    });
+  };
   upVote.src = '..//image//upvote.png';
   downVote.src = '..//image//downvote.png';
   const post = createNode('section', 'post', postContainer);
@@ -107,6 +128,30 @@ const createPostContainer = (index, postId,
   postSave.textContent = 'Save';
   const saveIcon = createNode('i', 'far', postSave);
   saveIcon.classList.add('fa-bookmark');
+  const postReply = createNode('button', 'post-option', postOptions);
+  postReply.textContent = 'Reply';
+  const replyIcon = createNode('i', 'far', postReply);
+  replyIcon.classList.add('fa-comment-dots');
+  postReply.onclick = () => {
+    const replyForm = createNode('form', 'reply-form', postCommentContainer);
+    const close = createNode('img', 'close', replyForm);
+    close.src = './/image//close.svg';
+    close.alt = 'close icon';
+    const label = createNode('label', 'reply-label', replyForm);
+    label.for = 'reply';
+    const input = createNode('input', 'reply-input', label);
+    input.type = 'text';
+    input.id = 'reply';
+    input.name = 'reply';
+    input.required = 'required';
+    input.placeholder = 'Add your comment';
+    const button = createNode('button', 'reply-button', replyForm);
+    button.type = 'submit';
+    button.textContent = 'Reply';
+    replyForm.method = 'POST';
+    replyForm.action = `/add-comment/${postId}`;
+    close.onclick = () => { replyForm.style.display = 'none'; };
+  };
 };
 
 // function to display the post data
@@ -129,6 +174,9 @@ const displayPostData = (data) => {
 
 // function to create a contauner for comments
 const CreateCommentContainer = (index, userName, time, userImg, text, voteNum) => {
+  if (document.querySelector('.reply-form')) {
+    document.querySelector('.reply-form').style.display = 'none';
+  }
   const commentContainer = createNode('section', 'comment-container', document.querySelectorAll('.comments-section')[index]);
   const userSection = createNode('section', 'comment-user-section', commentContainer);
   const userImage = createNode('img', 'comment-user-img', userSection);
@@ -178,6 +226,13 @@ const fetchComments = (postId, index) => {
 const displayFilterLabel = () => {
   timeFilterLabel.style.display = 'block';
   fetchData('/top-now-posts', displayPostData);
+};
+
+changeBtn.onchange = (event) => {
+  userProfilePic.src = URL.createObjectURL(event.target.files[0]);
+  const urlInput = document.querySelector('.url-input')
+  urlInput.value = URL.createObjectURL(event.target.files[0]) + '.' + event.target.files[0].type.split('/')[1]
+  changePicForm.submit();
 };
 
 // searchBtn.addEventListener('click', getUserProfile);

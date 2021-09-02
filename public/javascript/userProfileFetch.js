@@ -56,7 +56,8 @@ commentBtn.onclick = () => {
 
 saveBtn.onclick = () => {
   fetch(`/saved/${username}`)
-    .then((data) => data.json());
+    .then((data) => data.json())
+    .then(console.log)
 };
 
 followerBtn.onclick = () => {

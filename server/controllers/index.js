@@ -22,6 +22,8 @@ const handleUserComment = require('./userAllComment');
 const handleUserFollower = require('./userFollower');
 const handleUserSaved = require('./userSaved');
 const handleCreatePost = require('./createPost');
+const handleAddComment = require('./addComment');
+const handleChangePic = require('./changePic');
 const handleServerError = require('./serverError');
 const handleErrorNotFound = require('./errorNotFound');
 
@@ -50,6 +52,8 @@ module.exports = {
   handleUserFollower,
   handleUserSaved,
   handleCreatePost,
+  handleAddComment,
+  handleChangePic,
   handleErrorNotFound,
   handleServerError,
 };
