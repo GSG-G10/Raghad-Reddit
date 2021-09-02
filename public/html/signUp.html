@@ -4,14 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/sign.css" />
+    <link rel="stylesheet" href="../css/home.css" />
     <title>Sign up</title>
   </head>
   <body>
     <header class="home-header">
-      <div class="logo-container">
+      <a href="/" class="logo-container">
         <img src="../image/reddit-logo.jpeg" alt="reddit logo" />
         <h1>Raghad Redd <span>i</span> t</h1>
-      </div>
+      </a>
 
       <form class="search-form">
         <label id="search-label">
@@ -32,33 +34,42 @@
       </nav>
     </header>
     <form action="/sign-up" class="sign-form" method="POST">
+      <span id="orange-line"></span>
       <h2 class="sign-title">Sign up</h2>
-      <span class="error"></span>
-      <label for="username">Username :</label>
-      <input
-        type="text"
-        id="username"
-        name="username"
-        placeholder="Add your name"
-        required
-      />
-      <label for="email">Email :</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="Add your email"
-        required
-      />
+      <span class="error">;slfkkkdjmadkgjipr</span>
+      <label for="username"
+        >Username :
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Add your name"
+          required
+        />
+      </label>
 
-      <label for="password">Password :</label>
-      <input
-        type="password"
-        id="password"
-        name="password"
-        placeholder="Add your password"
-        required
-      />
+      <label for="email"
+        >Email :
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Add your email"
+          required
+        />
+      </label>
+
+      <label for="password"
+        >Password :
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Add your password"
+          required
+        />
+      </label>
+      <p>If you have an account sign in <a href="./signIn.html"> here</a></p>
 
       <button type="submit" class="sign-btn">Sign Up</button>
     </form>
