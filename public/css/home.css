@@ -96,7 +96,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: .85rem;
+  font-size: 0.85rem;
   text-decoration: none;
 }
 #sign-in-btn {
@@ -111,7 +111,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: .85rem;
+  font-size: 0.85rem;
   text-decoration: none;
 }
 .home-container {
@@ -592,6 +592,6 @@ body {
 .reply-button:hover {
   background-color: #dfe1e2;
 }
-#file{
+#file {
   display: none;
 }

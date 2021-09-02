@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/sign.css" />
     <title>Sign In</title>
   </head>
+
   <body>
     <header class="home-header">
       <a href="/" class="logo-container">
@@ -15,55 +16,44 @@
         <h1>Raghad Redd <span>i</span> t</h1>
       </a>
 
-      <form class="search-form">
-        <label id="search-label">
-          <input type="search" placeholder="Search Reddit" id="search-input" />
-        </label>
-        <button type="submit">
-          <img
-            src="../image/search-icon.png"
-            alt="search icon"
-            class="search-icon"
-          />
-        </button>
-      </form>
-
       <nav class="home-nav">
-        <button id="sign-in-btn">SIGN IN</button>
-        <button id="sign-up-btn">SIGN UP</button>
+        <a href="./signIn.html" id="sign-in-btn">SIGN IN</a>
+        <a href="./signUp.html" id="sign-up-btn">SIGN UP</a>
       </nav>
     </header>
-    <form action="/sign-in" class="sign-form" method="POST">
-      <span id="orange-line"></span>
-      <h2 class="sign-title">Sign In</h2>
-      <span class="error"></span>
-      <label for="username"
-        >Username :
-        <input
-          type="text"
-          id="username"
-          name="username"
-          placeholder="Add your name"
-          required
-        />
-      </label>
+    <main>
+      <form action="/sign-in" class="sign-form" method="POST">
+        <span id="orange-line"></span>
+        <h2 class="sign-title">Sign In</h2>
+        <span class="error"></span>
+        <label for="username"
+          >Username :
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Add your name"
+            required
+          />
+        </label>
 
-      <label for="password"
-        >Password :
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Add your password"
-          required
-        />
-      </label>
-      <p>
-        If you don't have an account sign up <a href="./signUp.html"> here</a>
-      </p>
+        <label for="password"
+          >Password :
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Add your password"
+            required
+          />
+        </label>
+        <p>
+          If you don't have an account sign up <a href="./signUp.html"> here</a>
+        </p>
 
-      <button type="submit" class="sign-btn">Sign In</button>
-    </form>
+        <button type="submit" class="sign-btn">Sign In</button>
+      </form>
+    </main>
 
     <script src="../javascript/signError.js"></script>
   </body>

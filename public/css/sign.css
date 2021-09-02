@@ -1,3 +1,7 @@
+.home-header {
+  justify-content: space-between;
+  padding: 0 5%;
+}
 .sign-form {
   margin: 8vh auto;
   width: 48%;
