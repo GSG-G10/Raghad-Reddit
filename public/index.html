@@ -17,10 +17,10 @@
   </head>
   <body>
     <header class="home-header">
-      <div class="logo-container">
+      <a href="/" class="logo-container">
         <img src="./image/reddit-logo.jpeg" alt="reddit logo" />
         <h1>Raghad Redd <span>i</span> t</h1>
-      </div>
+      </a>
 
       <form class="search-form">
         <label id="search-label">
@@ -36,8 +36,8 @@
       </form>
 
       <nav class="home-nav">
-        <button id="sign-in-btn">SIGN IN</button>
-        <button id="sign-up-btn">SIGN UP</button>
+        <a href="./html/signIn.html" id="sign-in-btn">SIGN IN</a>
+        <a href="./html/signUp.html" id="sign-up-btn">SIGN UP</a>
         <button class="drop-btn username-btn">
         </button>
         <div class="drop-list">
@@ -75,69 +75,6 @@
         <h5>Communities</h5>
         <div class="communities-section"></div>
       </section>
-    </section>
-
-    <section class="sign-popup">
-      <span></span>
-      <form action="/sign-up" class="sign-form" method="POST">
-        <h2 class="sign-title">Sign up</h2>
-        <img src="./image/close.svg" alt="close icon" class="close-icon" />
-        <span class="error"></span>
-        <label for="username">Username :</label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          placeholder="Add your name"
-          required
-        />
-        <label for="email">Email :</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Add your email"
-          required
-        />
-
-        <label for="password">Password :</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Add your password"
-          required
-        />
-
-        <button type="submit" class="sign-btn">Sign Up</button>
-      </form>
-    </section>
-
-    <section class="sign-popup">
-      <form action="/sign-in" class="sign-form" method="POST">
-        <h2 class="sign-title">Sign In</h2>
-        <img src="./image/close.svg" alt="close icon" class="close-icon" />
-        <span class="error"></span>
-        <label for="username">Username :</label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          placeholder="Add your name"
-          required
-        />
-
-        <label for="password">Password :</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Add your password"
-          required
-        />
-
-        <button type="submit" class="sign-btn">Sign In</button>
-      </form>
     </section>
 
     <script src="./javascript/dom.js"></script>
