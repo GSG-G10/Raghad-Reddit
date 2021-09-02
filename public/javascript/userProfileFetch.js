@@ -33,3 +33,5 @@ fetchData(`${endPoint}/profile`, (data) => {
     };
   }
 });
+
+fetchData(`/all-post/${searchedUsername}`, displayPostData);

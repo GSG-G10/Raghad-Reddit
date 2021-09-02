@@ -6,7 +6,7 @@ module.exports = (req, res, next) => {
   signInQuery(username).then(({ rows }) => {
     if (!rows.length) {
       res.cookie('error', 'You\'ve entered an invalid username');
-      res.redirect('/');
+      res.redirect('/html/signIn.html');
     } else {
       const { password: hashedPassword } = rows[0];
       comparePassword(password, hashedPassword, (err, isMatch) => {

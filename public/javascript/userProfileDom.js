@@ -13,7 +13,6 @@ closeBtn.onclick = () => {
 };
 
 // events to fetch each profile buttons data
-fetchData(`/all-post/${searchedUsername}`, displayPostData);
 postBtn.onclick = () => {
   fetchData(`/all-post/${searchedUsername}`, displayPostData);
 };

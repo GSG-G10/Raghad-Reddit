@@ -55,7 +55,7 @@ router.get('/all-post/:username', handleUserPost);
 router.get('/all-comment/:username', handleUserComment);
 router.get('/saved', authentication, handleUserSaved);
 router.get('/follower/:username', handleUserFollower);
-router.post('/add-comment/:postId', handleAddComment);
+router.post('/add-comment/:postId', authentication, handleAddComment);
 router.post('/change-pic', handleChangePic);
 router.post('/create-post', authentication, handleCreatePost);
 router.use(handleErrorNotFound);

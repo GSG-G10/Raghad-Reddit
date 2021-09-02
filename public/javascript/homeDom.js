@@ -14,6 +14,7 @@ const displayCommunityName = (names) => {
 const displayFilterLabel = () => {
   timeFilterLabel.style.display = 'block';
   topBtn.style.color = '#0079d3';
+  newBtn.style.color = '#878a8c';
   timeFilterSelect.style.color = '#0079d3';
   fetchData('/top-now-posts', displayPostData);
 };
@@ -22,6 +23,7 @@ const displayFilterLabel = () => {
 newBtn.addEventListener('click', () => {
   timeFilterSelect.style.color = '#878a8c';
   topBtn.style.color = '#878a8c';
+  newBtn.style.color = '#0079d3';
   fetchData('/new-posts', displayPostData);
 });
 
