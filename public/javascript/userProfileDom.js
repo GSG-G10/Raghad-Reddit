@@ -13,28 +13,13 @@ closeBtn.onclick = () => {
   createPostForm.style.visibility = 'hidden';
 };
 
-// function to change save to unsave and change the action of the save form
-const changeSaveForm = () => {
-  const savedForm = document.querySelectorAll('.save-form');
-  const saveFormText = document.querySelectorAll('.post-option-save');
-
-  saveFormText.forEach((element) => {
-    element.textContent = 'UNSAVE';
-  });
-
-  savedForm.forEach((element) => {
-    const postId = element.action.split('save-post/')[1];
-    element.action = `/unsave-post/${postId}`;
-  });
-};
-
 // events to fetch each profile buttons data
 postBtn.onclick = () => {
   postBtn.style.cssText = 'color:rgb(0, 121, 211); border-bottom:2px solid rgb(0, 121, 211)';
   savedBtn.style.cssText = 'color:black; border-bottom:none';
   followerBtn.style.cssText = 'color:black; border-bottom:none';
   commentBtn.style.cssText = 'color:black; border-bottom:none';
-  fetchData(`/all-post/${searchedUsername}`, displayPostData);
+  fetchData(`/all-post/${searchedUsername}`, displayPostData, changeSaveForm);
 };
 
 commentBtn.onclick = () => {
@@ -50,10 +35,7 @@ savedBtn.onclick = () => {
   postBtn.style.cssText = 'color:black; border-bottom:none';
   followerBtn.style.cssText = 'color:black; border-bottom:none';
   commentBtn.style.cssText = 'color:black; border-bottom:none';
-  fetchData('/saved', (data) => {
-    displayPostData(data);
-    changeSaveForm();
-  });
+  fetchData('/saved', displayPostData, changeSaveForm);
 };
 
 followerBtn.onclick = () => {

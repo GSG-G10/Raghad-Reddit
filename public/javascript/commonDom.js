@@ -189,9 +189,10 @@ const createPostContainer = (
   };
   const commentIcon = createNode('i', 'far', postComments);
   commentIcon.classList.add('fa-comment-alt');
+
   const saveForm = createNode('form', 'save-form', postOptions);
-  saveForm.action = `/save-post/${postId}`;
   const postSave = createNode('button', 'post-option', saveForm);
+  saveForm.action = `/save-post/${postId}`;
   postSave.textContent = 'Save';
   postSave.classList.add('post-option-save');
   const saveIcon = createNode('i', 'far', postSave);
@@ -238,4 +239,22 @@ const displayPostData = (data) => {
       element.vote,
     );
   });
+};
+
+// function to change save btn text content and save form action
+const changeSaveForm = () => {
+  fetchData('/saved', (data) => {
+    if (data.length) {
+      const idArray = data.map((elem) => elem.id);
+      const saveFormText = document.querySelectorAll('.post-option-save');
+      const savedForm = document.querySelectorAll('.save-form');
+      savedForm.forEach((elem, index) => {
+        const postId = Number(elem.action.split('-post/')[1]);
+        if (idArray.includes(postId)) {
+          saveFormText[index].textContent = 'Un Save';
+          savedForm[index].action = `/unsave-post/${postId}`;
+        }
+      });
+    }
+  }, () => {});
 };

@@ -2,14 +2,15 @@
 /* eslint-disable no-unused-vars */
 
 // general fetch function
-const fetchData = (endPoint, callback) => {
+const fetchData = (endPoint, callback1, callback2) => {
   fetch(endPoint)
     .then((response) => response.json())
-    .then((data) => callback(data));
+    .then((data) => callback1(data))
+    .then(() => callback2());
 };
 
 fetchData('/check-user', (name) => {
   if (name) {
     addUser(name);
   }
-});
+}, () => {});

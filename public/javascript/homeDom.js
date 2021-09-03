@@ -16,7 +16,7 @@ const displayFilterLabel = () => {
   topBtn.style.color = '#0079d3';
   newBtn.style.color = '#878a8c';
   timeFilterSelect.style.color = '#0079d3';
-  fetchData('/top-now-posts', displayPostData);
+  fetchData('/top-now-posts', displayPostData, changeSaveForm);
 };
 
 // add events on filtering buttons to fetch posts data
@@ -24,12 +24,12 @@ newBtn.addEventListener('click', () => {
   timeFilterSelect.style.color = '#878a8c';
   topBtn.style.color = '#878a8c';
   newBtn.style.color = '#0079d3';
-  fetchData('/new-posts', displayPostData);
+  fetchData('/new-posts', displayPostData, changeSaveForm);
 });
 
 topBtn.addEventListener('click', displayFilterLabel);
 
 timeFilterSelect.addEventListener('change', () => {
   const { value } = timeFilterSelect;
-  fetchData(`/top-${value}-posts`, displayPostData);
+  fetchData(`/top-${value}-posts`, displayPostData, changeSaveForm);
 });
