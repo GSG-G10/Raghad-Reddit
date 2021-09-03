@@ -26,6 +26,7 @@ const handleAddComment = require('./addComment');
 const handleChangePic = require('./changePic');
 const handleServerError = require('./serverError');
 const handleErrorNotFound = require('./errorNotFound');
+const handleUnSavePost = require('./unSavePost');
 
 module.exports = {
   handleSignUp,
@@ -56,4 +57,5 @@ module.exports = {
   handleChangePic,
   handleErrorNotFound,
   handleServerError,
+  handleUnSavePost,
 };
