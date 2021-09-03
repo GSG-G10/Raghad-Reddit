@@ -723,3 +723,21 @@ body {
 .comment-container{
   margin: 20px;
 }
+.comment-option{
+  height: 100%;
+  border: none;
+  background-color: white;
+  border-radius: 2px;
+  margin-right: 12px;
+  cursor: pointer;
+  color: #878a8c;
+  padding: 5px 9px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  text-indent: 8px;
+  font-weight: bold;
+  outline: none;
+  margin-left: 4%;
+} 
