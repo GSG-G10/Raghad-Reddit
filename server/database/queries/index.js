@@ -15,7 +15,7 @@ const downVotePost = require('./downVotePost');
 const getUserData = require('./getUserData');
 const getUserAllPost = require('./getAllUserPost');
 const getUserAllComment = require('./getUserComments');
-const getUserFollower = require('./getUserFollower');
+const getUserFollowing = require('./getUserFollowing');
 const getUserSaved = require('./getUserSaved');
 const addPostData = require('./addPostData');
 const addComment = require('./addComment');
@@ -41,7 +41,7 @@ module.exports = {
   getUserData,
   getUserAllPost,
   getUserAllComment,
-  getUserFollower,
+  getUserFollowing,
   getUserSaved,
   addPostData,
   addComment,

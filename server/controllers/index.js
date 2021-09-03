@@ -19,7 +19,7 @@ const handleUserProfile = require('./userProfile');
 const handleProfileData = require('./userProfileData');
 const handleUserPost = require('./userAllPost');
 const handleUserComment = require('./userAllComment');
-const handleUserFollower = require('./userFollower');
+const handleUserFollowing = require('./userFollowing');
 const handleUserSaved = require('./userSaved');
 const handleCreatePost = require('./createPost');
 const handleAddComment = require('./addComment');
@@ -51,7 +51,7 @@ module.exports = {
   handleProfileData,
   handleUserPost,
   handleUserComment,
-  handleUserFollower,
+  handleUserFollowing,
   handleUserSaved,
   handleCreatePost,
   handleAddComment,
