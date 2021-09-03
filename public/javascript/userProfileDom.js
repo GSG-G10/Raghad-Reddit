@@ -27,9 +27,13 @@ const createFollowingContainer = (url, username) => {
   const profileBtn = createNode('a', 'profile-btn', followingContainer);
   profileBtn.href = `/user/${username}`;
   profileBtn.textContent = 'View Profile';
-  const unFollow = createNode('a', 'unFollow-btn', followingContainer);
-  unFollow.href = `/unfollow/${username}`;
-  unFollow.textContent = 'Unfollow';
+  fetchData(`${endPoint}/profile`, (data) => {
+    if (data.boolean) {
+      const unFollow = createNode('a', 'unFollow-btn', followingContainer);
+      unFollow.href = `/unfollow/${username}`;
+      unFollow.textContent = 'Unfollow';
+    }
+  }, () => {});
 };
 
 // function to display the following
