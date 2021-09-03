@@ -30,12 +30,26 @@ const changeSaveForm = () => {
 
 // events to fetch each profile buttons data
 postBtn.onclick = () => {
+  postBtn.style.cssText = 'color:rgb(0, 121, 211); border-bottom:2px solid rgb(0, 121, 211)';
+  savedBtn.style.cssText = 'color:black; border-bottom:none';
+  followerBtn.style.cssText = 'color:black; border-bottom:none';
+  commentBtn.style.cssText = 'color:black; border-bottom:none';
   fetchData(`/all-post/${searchedUsername}`, displayPostData);
 };
+
 commentBtn.onclick = () => {
+  commentBtn.style.cssText = 'color:rgb(0, 121, 211); border-bottom:2px solid rgb(0, 121, 211)';
+  postBtn.style.cssText = 'color:black; border-bottom:none';
+  followerBtn.style.cssText = 'color:black; border-bottom:none';
+  savedBtn.style.cssText = 'color:black; border-bottom:none';
   fetchData(`/all-comment/${searchedUsername}`);
 };
+
 savedBtn.onclick = () => {
+  savedBtn.style.cssText = 'color:rgb(0, 121, 211); border-bottom:2px solid rgb(0, 121, 211)';
+  postBtn.style.cssText = 'color:black; border-bottom:none';
+  followerBtn.style.cssText = 'color:black; border-bottom:none';
+  commentBtn.style.cssText = 'color:black; border-bottom:none';
   fetchData('/saved', (data) => {
     displayPostData(data);
     changeSaveForm();
@@ -43,6 +57,10 @@ savedBtn.onclick = () => {
 };
 
 followerBtn.onclick = () => {
+  followerBtn.style.cssText = 'color:rgb(0, 121, 211); border-bottom:2px solid rgb(0, 121, 211)';
+  postBtn.style.cssText = 'color:black; border-bottom:none';
+  savedBtn.style.cssText = 'color:black; border-bottom:none';
+  commentBtn.style.cssText = 'color:black; border-bottom:none';
   fetchData(`/follower/${searchedUsername}`);
 };
 
