@@ -96,6 +96,21 @@ const displayFollowing = (data) => {
   }
 };
 
+// function to add delete btn and event to delete the comment when its the user comment
+const deleteComment = (array) => {
+  const commentOptions = document.querySelectorAll('.comment-options');
+  commentOptions.forEach((elem, index) => {
+    const commentDelete = createNode('button', 'comment-option', elem);
+    commentDelete.textContent = 'Delete';
+    const deleteIcon = createNode('i', 'fas', commentDelete);
+    deleteIcon.classList.add('fa-trash');
+    commentDelete.onclick = () => {
+      const commentId = array[index];
+      fetch(`/delete-comment/${commentId}`).then(() => { window.location.reload(); });
+    };
+  });
+};
+
 // function to add delete btn and event to delete the post when its the user post
 const deletePost = () => {
   fetchData(`${endPoint}/profile`, (data) => {
@@ -130,7 +145,12 @@ commentBtn.onclick = () => {
   commentBtn.style.cssText = 'color:rgb(0, 121, 211); border-bottom:2px solid rgb(0, 121, 211)';
   postBtn.style.cssText = 'color:black; border-bottom:none';
   followerBtn.style.cssText = 'color:black; border-bottom:none';
-  fetchData(`/all-comment/${searchedUsername}`, displayCommentDataProfile, () => {});
+  fetchData(`/all-comment/${searchedUsername}`, (data) => {
+    displayCommentDataProfile(data);
+    return data.map((elem) => elem.id);
+  }, (array) => {
+    deleteComment(array);
+  });
 };
 
 savedBtn.onclick = () => {

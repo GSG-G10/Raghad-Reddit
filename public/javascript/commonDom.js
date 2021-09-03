@@ -185,6 +185,7 @@ const createPostContainer = (
     commentsSection.style.display = 'block';
     fetch(`/comments/${postId}`).then((data) => data.json()).then((data) => {
       displayCommentData(data, index);
+      deleteComment();
     });
   };
   const commentIcon = createNode('i', 'far', postComments);
