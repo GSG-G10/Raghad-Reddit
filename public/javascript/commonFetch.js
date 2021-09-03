@@ -6,7 +6,7 @@ const fetchData = (endPoint, callback1, callback2) => {
   fetch(endPoint)
     .then((response) => response.json())
     .then((data) => callback1(data))
-    .then(() => callback2());
+    .then((data) => callback2(data));
 };
 
 fetchData('/check-user', (name) => {
