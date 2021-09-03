@@ -29,6 +29,7 @@ const handleErrorNotFound = require('./errorNotFound');
 const handleUnSavePost = require('./unSavePost');
 const handleDeletePost = require('./deletePost');
 const handleUnFollow = require('./unFollow');
+const handleDeleteComment = require('./deleteComment');
 
 module.exports = {
   handleSignUp,
@@ -62,4 +63,5 @@ module.exports = {
   handleUnSavePost,
   handleDeletePost,
   handleUnFollow,
+  handleDeleteComment,
 };
