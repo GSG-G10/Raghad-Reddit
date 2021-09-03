@@ -32,6 +32,7 @@ const {
   handleServerError,
   handleUnSavePost,
   handleDeletePost,
+  handleUnFollow,
 } = require('../controllers');
 
 router.use(cookieParse());
@@ -58,6 +59,7 @@ router.get('/all-post/:username', handleUserPost);
 router.get('/all-comment/:username', handleUserComment);
 router.get('/saved', authentication, handleUserSaved);
 router.get('/following/:username', handleUserFollowing);
+router.get('/unfollow/:user', authentication, handleUnFollow);
 router.post('/add-comment/:postId', authentication, handleAddComment);
 router.post('/change-pic', handleChangePic);
 router.post('/create-post', authentication, handleCreatePost);
