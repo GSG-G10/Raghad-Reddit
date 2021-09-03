@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const { join } = require('path');
 
 module.exports = (req, res, next) => {
   const cookies = req.cookies.access_token;
@@ -15,6 +14,6 @@ module.exports = (req, res, next) => {
       }
     });
   } else {
-    res.sendFile(join(__dirname, '..', '..', 'public', 'html', 'signIn.html'));
+    res.redirect('/html/signIn.html');
   }
 };

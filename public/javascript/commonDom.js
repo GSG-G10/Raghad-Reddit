@@ -134,17 +134,27 @@ const createPostContainer = (
   const postVote = createNode('section', 'post-vote-container', postContainer);
   const upVote = createNode('img', 'up-vote', postVote);
   upVote.onclick = () => {
-    fetchData(`/up-vote/${postId}`, () => {
-      window.location.reload();
-    });
+    fetch(`/up-vote/${postId}`)
+      .then((data) => {
+        if (data.redirected) {
+          window.location.href = data.url;
+        } else {
+          window.location.reload();
+        }
+      });
   };
   const totalVotes = createNode('span', 'post-vote', postVote);
   totalVotes.textContent = voteNum;
   const downVote = createNode('img', 'down-vote', postVote);
   downVote.onclick = () => {
-    fetchData(`/down-vote/${postId}`, () => {
-      window.location.reload();
-    });
+    fetch(`/down-vote/${postId}`)
+      .then((data) => {
+        if (data.redirected) {
+          window.location.href = data.url;
+        } else {
+          window.location.reload();
+        }
+      });
   };
   upVote.src = '..//image//upvote.png';
   downVote.src = '..//image//downvote.png';
