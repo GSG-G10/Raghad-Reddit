@@ -21,6 +21,7 @@ const addPostData = require('./addPostData');
 const addComment = require('./addComment');
 const changePic = require('./changePic');
 const unSavePost = require('./unSavePost');
+const deletePost = require('./deletePost');
 
 module.exports = {
   signUpQuery,
@@ -46,4 +47,5 @@ module.exports = {
   addComment,
   changePic,
   unSavePost,
+  deletePost,
 };

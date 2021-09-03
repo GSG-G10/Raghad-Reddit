@@ -18,16 +18,14 @@ const deletePost = () => {
   fetchData(`${endPoint}/profile`, (data) => {
     if (data.boolean) {
       const postOptions = document.querySelectorAll('.post-options');
-      postOptions.forEach((elem) => {
+      postOptions.forEach((elem, index) => {
         const postDelete = createNode('button', 'post-option', elem);
         postDelete.textContent = 'Delete';
         const deleteIcon = createNode('i', 'fas', postDelete);
         deleteIcon.classList.add('fa-trash');
         postDelete.onclick = () => {
-          const postId = 1;
-          fetch(`/delete-post/${postId}`, {
-            method: 'DELETE',
-          });
+          const postId = document.querySelectorAll('.save-form')[index].action.split('-post/')[1];
+          fetch(`/delete-post/${postId}`).then(() => { window.location.reload(); });
         };
       });
     }
