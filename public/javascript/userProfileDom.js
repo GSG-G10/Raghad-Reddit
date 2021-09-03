@@ -13,13 +13,37 @@ closeBtn.onclick = () => {
   createPostForm.style.visibility = 'hidden';
 };
 
+// function to add delete btn and event to delete the post when its the user post
+const deletePost = () => {
+  fetchData(`${endPoint}/profile`, (data) => {
+    if (data.boolean) {
+      const postOptions = document.querySelectorAll('.post-options');
+      postOptions.forEach((elem) => {
+        const postDelete = createNode('button', 'post-option', elem);
+        postDelete.textContent = 'Delete';
+        const deleteIcon = createNode('i', 'fas', postDelete);
+        deleteIcon.classList.add('fa-trash');
+        postDelete.onclick = () => {
+          const postId = 1;
+          fetch(`/delete-post/${postId}`, {
+            method: 'DELETE',
+          });
+        };
+      });
+    }
+  }, () => {});
+};
+
 // events to fetch each profile buttons data
 postBtn.onclick = () => {
   postBtn.style.cssText = 'color:rgb(0, 121, 211); border-bottom:2px solid rgb(0, 121, 211)';
   savedBtn.style.cssText = 'color:black; border-bottom:none';
   followerBtn.style.cssText = 'color:black; border-bottom:none';
   commentBtn.style.cssText = 'color:black; border-bottom:none';
-  fetchData(`/all-post/${searchedUsername}`, displayPostData, changeSaveForm);
+  fetchData(`/all-post/${searchedUsername}`, displayPostData, () => {
+    changeSaveForm();
+    deletePost();
+  });
 };
 
 commentBtn.onclick = () => {

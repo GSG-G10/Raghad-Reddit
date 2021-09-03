@@ -34,4 +34,7 @@ fetchData(`${endPoint}/profile`, (data) => {
   }
 }, () => {});
 
-fetchData(`/all-post/${searchedUsername}`, displayPostData, changeSaveForm);
+fetchData(`/all-post/${searchedUsername}`, displayPostData, () => {
+  changeSaveForm();
+  deletePost();
+});
