@@ -13,6 +13,52 @@ closeBtn.onclick = () => {
   createPostForm.style.visibility = 'hidden';
 };
 
+// function to create comment container on profile
+const CreateCommentContainerProfile = (userName, time, userImg, text, voteNum) => {
+  const commentsContainer = createNode('section', 'comments-container', postsSection);
+  const commentContainer = createNode('section', 'comment-container', commentsContainer);
+  commentsContainer.classList.add('comment-container-profile');
+  const userSection = createNode('section', 'comment-user-section', commentContainer);
+  const userImage = createNode('img', 'comment-user-img', userSection);
+  if (userImg) {
+    userImage.src = userImg;
+  } else {
+    userImage.src = '..//image//user-img.png';
+  }
+  const commentUserName = createNode('p', 'comment-user-name', userSection);
+  commentUserName.textContent = userName;
+  const commentTime = createNode('p', 'comment-time', userSection);
+  commentTime.textContent = time;
+  const commentSection = createNode('section', 'comment-text-section', commentContainer);
+  const commentText = createNode('p', 'comment-text', commentSection);
+  commentText.textContent = text;
+  const commentOpt = createNode('section', 'comment-options', commentContainer);
+  const upVote = createNode('img', 'up-vote', commentOpt);
+  const totalVotes = createNode('span', 'comment-vote', commentOpt);
+  totalVotes.textContent = voteNum;
+  const downVote = createNode('img', 'down-vote', commentOpt);
+  upVote.src = '..//image//upvote.png';
+  downVote.src = '..//image//downvote.png';
+};
+
+// function to display the comment data on profile
+const displayCommentDataProfile = (data) => {
+  postsSection.textContent = '';
+  if (!data.length) {
+    postsSection.textContent = 'No comments to show';
+  } else {
+    data.forEach((element) => {
+      CreateCommentContainerProfile(
+        element.username,
+        element.comment_date,
+        element.img,
+        element.comment_text,
+        element.vote,
+      );
+    });
+  }
+};
+
 // function to create a container for the following
 const createFollowingContainer = (url, username) => {
   const followingContainer = createNode('section', 'following-section', postsSection);
@@ -84,7 +130,7 @@ commentBtn.onclick = () => {
   commentBtn.style.cssText = 'color:rgb(0, 121, 211); border-bottom:2px solid rgb(0, 121, 211)';
   postBtn.style.cssText = 'color:black; border-bottom:none';
   followerBtn.style.cssText = 'color:black; border-bottom:none';
-  fetchData(`/all-comment/${searchedUsername}`);
+  fetchData(`/all-comment/${searchedUsername}`, displayCommentDataProfile, () => {});
 };
 
 savedBtn.onclick = () => {

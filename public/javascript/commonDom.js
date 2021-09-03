@@ -92,7 +92,7 @@ const CreateCommentContainer = (index, userName, time, userImg, text, voteNum) =
   const totalVotes = createNode('span', 'comment-vote', commentOpt);
   totalVotes.textContent = voteNum;
   const downVote = createNode('img', 'down-vote', commentOpt);
-  upVote.src = './/image//upvote.png';
+  upVote.src = '..//image//upvote.png';
   downVote.src = '..//image//downvote.png';
 };
 
@@ -226,6 +226,9 @@ const createPostContainer = (
 // function to display the post data
 const displayPostData = (data) => {
   postsSection.textContent = '';
+  if (!data.length) {
+    postsSection.textContent = 'No posts to show';
+  }
   data.forEach((element, index) => {
     createPostContainer(
       index,
