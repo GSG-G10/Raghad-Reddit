@@ -30,6 +30,7 @@ const {
   handleChangePic,
   handleErrorNotFound,
   handleServerError,
+  handleUnSavePost,
 } = require('../controllers');
 
 router.use(cookieParse());
@@ -47,6 +48,7 @@ router.get('/top-year-posts', handleTopYearPosts);
 router.get('/top-all-posts', handleTopPosts);
 router.get('/comments/:postId', handleComments);
 router.get('/save-post/:postId', authentication, handleSavePost);
+router.get('/unsave-post/:postId', authentication, handleUnSavePost);
 router.get('/up-vote/:postId', authentication, handleUpVotePost);
 router.get('/down-vote/:postId', authentication, handleDownVotePost);
 router.get('/user/:username', handleUserProfile);

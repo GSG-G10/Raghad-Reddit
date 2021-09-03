@@ -15,15 +15,34 @@ closeBtn.onclick = () => {
 
 // events to fetch each profile buttons data
 postBtn.onclick = () => {
-  fetchData(`/all-post/${searchedUsername}`, displayPostData);
+  postBtn.style.cssText = 'color:rgb(0, 121, 211); border-bottom:2px solid rgb(0, 121, 211)';
+  savedBtn.style.cssText = 'color:black; border-bottom:none';
+  followerBtn.style.cssText = 'color:black; border-bottom:none';
+  commentBtn.style.cssText = 'color:black; border-bottom:none';
+  fetchData(`/all-post/${searchedUsername}`, displayPostData, changeSaveForm);
 };
+
 commentBtn.onclick = () => {
+  commentBtn.style.cssText = 'color:rgb(0, 121, 211); border-bottom:2px solid rgb(0, 121, 211)';
+  postBtn.style.cssText = 'color:black; border-bottom:none';
+  followerBtn.style.cssText = 'color:black; border-bottom:none';
+  savedBtn.style.cssText = 'color:black; border-bottom:none';
   fetchData(`/all-comment/${searchedUsername}`);
 };
-saveBtn.onclick = () => {
-  fetchData('/saved');
+
+savedBtn.onclick = () => {
+  savedBtn.style.cssText = 'color:rgb(0, 121, 211); border-bottom:2px solid rgb(0, 121, 211)';
+  postBtn.style.cssText = 'color:black; border-bottom:none';
+  followerBtn.style.cssText = 'color:black; border-bottom:none';
+  commentBtn.style.cssText = 'color:black; border-bottom:none';
+  fetchData('/saved', displayPostData, changeSaveForm);
 };
+
 followerBtn.onclick = () => {
+  followerBtn.style.cssText = 'color:rgb(0, 121, 211); border-bottom:2px solid rgb(0, 121, 211)';
+  postBtn.style.cssText = 'color:black; border-bottom:none';
+  savedBtn.style.cssText = 'color:black; border-bottom:none';
+  commentBtn.style.cssText = 'color:black; border-bottom:none';
   fetchData(`/follower/${searchedUsername}`);
 };
 

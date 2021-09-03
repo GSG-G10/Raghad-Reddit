@@ -23,7 +23,7 @@ const userProfilePic = document.querySelector('.user-profile-img');
 const changePicForm = document.querySelector('.change-pic-form');
 const commentBtn = document.querySelector('.comment-btn');
 const postBtn = document.querySelector('.post-btn');
-const saveBtn = document.querySelector('.saved-btn');
+const savedBtn = document.querySelector('.saved-btn');
 const followerBtn = document.querySelector('.follower-btn');
 const createPostBtn = document.querySelector('.add-post-btn');
 const createPostForm = document.querySelector('.add-post-form');
@@ -33,7 +33,6 @@ const filterUser = document.querySelector('.filter-user');
 const userNameContainer = document.querySelector('.user-name');
 const UserDate = document.querySelector('.user-date');
 const addPostBtn = document.querySelector('.add-post-btn');
-const savedBtn = document.querySelector('.saved-btn');
 const profileSection = document.querySelector('.right-profile-section');
 
 // general function to create a new tag, give it a class and append it to a parent.
@@ -190,10 +189,12 @@ const createPostContainer = (
   };
   const commentIcon = createNode('i', 'far', postComments);
   commentIcon.classList.add('fa-comment-alt');
+
   const saveForm = createNode('form', 'save-form', postOptions);
-  saveForm.action = `/save-post/${postId}`;
   const postSave = createNode('button', 'post-option', saveForm);
+  saveForm.action = `/save-post/${postId}`;
   postSave.textContent = 'Save';
+  postSave.classList.add('post-option-save');
   const saveIcon = createNode('i', 'far', postSave);
   saveIcon.classList.add('fa-bookmark');
   const postReply = createNode('button', 'post-option', postOptions);
@@ -238,4 +239,22 @@ const displayPostData = (data) => {
       element.vote,
     );
   });
+};
+
+// function to change save btn text content and save form action
+const changeSaveForm = () => {
+  fetchData('/saved', (data) => {
+    if (data.length) {
+      const idArray = data.map((elem) => elem.id);
+      const saveFormText = document.querySelectorAll('.post-option-save');
+      const savedForm = document.querySelectorAll('.save-form');
+      savedForm.forEach((elem, index) => {
+        const postId = Number(elem.action.split('-post/')[1]);
+        if (idArray.includes(postId)) {
+          saveFormText[index].textContent = 'Un Save';
+          savedForm[index].action = `/unsave-post/${postId}`;
+        }
+      });
+    }
+  }, () => {});
 };
