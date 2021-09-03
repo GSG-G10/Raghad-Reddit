@@ -1,21 +1,25 @@
-const endPoint = window.location.pathname;
-fetch(`${endPoint}/profile`).then((data) => data.json()).then((data) => {
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+
+fetchData(`${endPoint}/profile`, (data) => {
   if (!data.data.rows[0]) {
-    document.querySelector('.filter-user').style.display = 'none';
-    document.querySelector('.profile-container').textContent = 'No Such user';
+    filterUser.style.display = 'none';
+    profileContainer.textContent = 'Nobody goes by that name.';
+    profileContainer.style.fontWeight = 'bold';
   }
-  document.querySelector('.user-name').textContent = data.data.rows[0].username;
-  document.querySelector('.user-date').textContent = data.data.rows[0].user_date.split('T')[0];
+  const date = data.data.rows[0].user_date.split('T')[0];
+  userNameContainer.textContent = data.data.rows[0].username;
+  UserDate.textContent = date;
   if (data.data.rows[0].img) {
     document.querySelector('.user-profile-img').src = data.data.rows[0].img;
   } else {
     document.querySelector('.user-profile-img').src = '..//image//user-img.png';
   }
   if (!data.boolean) {
-    document.querySelector('.add-post-btn').style.display = 'none';
-    document.querySelector('.saved-btn').style.display = 'none';
-    createNode('button', 'follow-btn', document.querySelector('.right-profile-section')).textContent = 'FOLLOW';
-    const followBtn = document.querySelector('.follow-btn');
+    addPostBtn.style.display = 'none';
+    savedBtn.style.display = 'none';
+    const followBtn = createNode('button', 'follow-btn', profileSection);
+    followBtn.textContent = 'FOLLOW';
     followBtn.onclick = () => {
       if (followBtn.textContent === 'FOLLOW') {
         followBtn.textContent = 'UNFOLLOW';
@@ -30,41 +34,4 @@ fetch(`${endPoint}/profile`).then((data) => data.json()).then((data) => {
   }
 });
 
-const username = endPoint.split('/')[2];
-fetch(`/all-post/${username}`)
-  .then((data) => data.json())
-  .then((data) => displayPostData(data));
-
-const commentBtn = document.querySelector('.comment-btn');
-const postBtn = document.querySelector('.post-btn');
-const saveBtn = document.querySelector('.saved-btn');
-const followerBtn = document.querySelector('.follower-btn');
-const createPostBtn = document.querySelector('.add-post-btn');
-const createPostForm = document.querySelector('.add-post-form');
-
-createPostBtn.onclick = () => {
-  createPostForm.style.display = 'block';
-};
-createPostForm.onsubmit = () => {
-  createPostForm.action = `/create-post/${username}`;
-};
-
-commentBtn.onclick = () => {
-  fetch(`/all-comment/${username}`)
-    .then((data) => data.json());
-};
-
-saveBtn.onclick = () => {
-  fetch(`/saved/${username}`)
-    .then((data) => data.json())
-    .then(console.log)
-};
-
-followerBtn.onclick = () => {
-  fetch(`/follower/${username}`)
-    .then((data) => data.json());
-};
-postBtn.onclick = () => {
-  fetch(`/all-post/${username}`)
-    .then((data) => data.json());
-};
+fetchData(`/all-post/${searchedUsername}`, displayPostData);
