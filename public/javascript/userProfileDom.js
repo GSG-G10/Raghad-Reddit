@@ -13,6 +13,21 @@ closeBtn.onclick = () => {
   createPostForm.style.visibility = 'hidden';
 };
 
+// function to change save to unsave and change the action of the save form
+const changeSaveForm = () => {
+  const savedForm = document.querySelectorAll('.save-form');
+  const saveFormText = document.querySelectorAll('.post-option-save');
+
+  saveFormText.forEach((element) => {
+    element.textContent = 'UNSAVE';
+  });
+
+  savedForm.forEach((element) => {
+    const postId = element.action.split('save-post/')[1];
+    element.action = `/unsave-post/${postId}`;
+  });
+};
+
 // events to fetch each profile buttons data
 postBtn.onclick = () => {
   fetchData(`/all-post/${searchedUsername}`, displayPostData);
@@ -20,9 +35,13 @@ postBtn.onclick = () => {
 commentBtn.onclick = () => {
   fetchData(`/all-comment/${searchedUsername}`);
 };
-saveBtn.onclick = () => {
-  fetchData('/saved');
+savedBtn.onclick = () => {
+  fetchData('/saved', (data) => {
+    displayPostData(data);
+    changeSaveForm();
+  });
 };
+
 followerBtn.onclick = () => {
   fetchData(`/follower/${searchedUsername}`);
 };

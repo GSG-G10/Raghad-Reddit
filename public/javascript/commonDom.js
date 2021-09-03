@@ -23,7 +23,7 @@ const userProfilePic = document.querySelector('.user-profile-img');
 const changePicForm = document.querySelector('.change-pic-form');
 const commentBtn = document.querySelector('.comment-btn');
 const postBtn = document.querySelector('.post-btn');
-const saveBtn = document.querySelector('.saved-btn');
+const savedBtn = document.querySelector('.saved-btn');
 const followerBtn = document.querySelector('.follower-btn');
 const createPostBtn = document.querySelector('.add-post-btn');
 const createPostForm = document.querySelector('.add-post-form');
@@ -33,7 +33,6 @@ const filterUser = document.querySelector('.filter-user');
 const userNameContainer = document.querySelector('.user-name');
 const UserDate = document.querySelector('.user-date');
 const addPostBtn = document.querySelector('.add-post-btn');
-const savedBtn = document.querySelector('.saved-btn');
 const profileSection = document.querySelector('.right-profile-section');
 
 // general function to create a new tag, give it a class and append it to a parent.
@@ -194,6 +193,7 @@ const createPostContainer = (
   saveForm.action = `/save-post/${postId}`;
   const postSave = createNode('button', 'post-option', saveForm);
   postSave.textContent = 'Save';
+  postSave.classList.add('post-option-save');
   const saveIcon = createNode('i', 'far', postSave);
   saveIcon.classList.add('fa-bookmark');
   const postReply = createNode('button', 'post-option', postOptions);
