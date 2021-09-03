@@ -24,7 +24,7 @@ const {
   handleUserPost,
   handleUserComment,
   handleUserSaved,
-  handleUserFollower,
+  handleUserFollowing,
   handleCreatePost,
   handleAddComment,
   handleChangePic,
@@ -32,6 +32,7 @@ const {
   handleServerError,
   handleUnSavePost,
   handleDeletePost,
+  handleUnFollow,
 } = require('../controllers');
 
 router.use(cookieParse());
@@ -57,7 +58,8 @@ router.get('/user/:username/profile', handleProfileData);
 router.get('/all-post/:username', handleUserPost);
 router.get('/all-comment/:username', handleUserComment);
 router.get('/saved', authentication, handleUserSaved);
-router.get('/follower/:username', handleUserFollower);
+router.get('/following/:username', handleUserFollowing);
+router.get('/unfollow/:user', authentication, handleUnFollow);
 router.post('/add-comment/:postId', authentication, handleAddComment);
 router.post('/change-pic', handleChangePic);
 router.post('/create-post', authentication, handleCreatePost);

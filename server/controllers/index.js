@@ -19,7 +19,7 @@ const handleUserProfile = require('./userProfile');
 const handleProfileData = require('./userProfileData');
 const handleUserPost = require('./userAllPost');
 const handleUserComment = require('./userAllComment');
-const handleUserFollower = require('./userFollower');
+const handleUserFollowing = require('./userFollowing');
 const handleUserSaved = require('./userSaved');
 const handleCreatePost = require('./createPost');
 const handleAddComment = require('./addComment');
@@ -28,6 +28,7 @@ const handleServerError = require('./serverError');
 const handleErrorNotFound = require('./errorNotFound');
 const handleUnSavePost = require('./unSavePost');
 const handleDeletePost = require('./deletePost');
+const handleUnFollow = require('./unFollow');
 
 module.exports = {
   handleSignUp,
@@ -51,7 +52,7 @@ module.exports = {
   handleProfileData,
   handleUserPost,
   handleUserComment,
-  handleUserFollower,
+  handleUserFollowing,
   handleUserSaved,
   handleCreatePost,
   handleAddComment,
@@ -60,4 +61,5 @@ module.exports = {
   handleServerError,
   handleUnSavePost,
   handleDeletePost,
+  handleUnFollow,
 };
