@@ -251,7 +251,7 @@ const changeSaveForm = () => {
       savedForm.forEach((elem, index) => {
         const postId = Number(elem.action.split('-post/')[1]);
         if (idArray.includes(postId)) {
-          saveFormText[index].textContent = 'Un Save';
+          saveFormText[index].textContent = 'Unsave';
           savedForm[index].action = `/unsave-post/${postId}`;
         }
       });

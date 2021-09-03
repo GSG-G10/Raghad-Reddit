@@ -16,20 +16,22 @@ closeBtn.onclick = () => {
 // function to create a container for the following
 const createFollowingContainer = (url, username) => {
   const followingContainer = createNode('section', 'following-section', postsSection);
-  const followingImg = createNode('img', 'following-img', followingContainer);
+  const userContainer = createNode('div', 'user-container', followingContainer);
+  const followingImg = createNode('img', 'following-img', userContainer);
   if (url) {
     followingImg.src = url;
   } else {
     followingImg.src = '..//image//user-img.png';
   }
-  const followeingName = createNode('p', 'following-name', followingContainer);
+  const followeingName = createNode('p', 'following-name', userContainer);
   followeingName.textContent = username;
-  const profileBtn = createNode('a', 'profile-btn', followingContainer);
+  const btnContainer = createNode('div', 'btn-container', followingContainer);
+  const profileBtn = createNode('a', 'profile-btn', btnContainer);
   profileBtn.href = `/user/${username}`;
   profileBtn.textContent = 'View Profile';
   fetchData(`${endPoint}/profile`, (data) => {
     if (data.boolean) {
-      const unFollow = createNode('a', 'unFollow-btn', followingContainer);
+      const unFollow = createNode('a', 'unFollow-btn', btnContainer);
       unFollow.href = `/unfollow/${username}`;
       unFollow.textContent = 'Unfollow';
     }

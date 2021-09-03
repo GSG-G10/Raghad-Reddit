@@ -654,3 +654,64 @@ body {
   top: 64px;
   left: -1px;
 }
+.following-section{
+  display: flex;
+  height: 12vh;
+  background-color: white;
+  margin: 2vh 0;
+  border-radius: 4px;
+  border: #ccc 1px solid;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-container{
+  display: flex;
+  width: 50%;
+}
+.following-img{
+  width: 26%;
+  height: 100%;
+}
+.following-name{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5%;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+.btn-container{
+  height: 70%;
+  width: 40%;
+  display: flex;
+  margin-right: 2.5%;
+  justify-content: flex-end;
+}
+.profile-btn{
+  background-color: #c1d4e0;
+  color: #3c3c3c;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6%;
+  border-radius: 4px;
+}
+.unFollow-btn{
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6%;
+  background-color:#c1d4e0 ;
+  color: #ca4f4f;
+  margin-left: 4%;
+  border-radius: 4px;
+}
+.profile-btn:hover, .unFollow-btn:hover{
+  background-color: #b1c0ca;
+}
