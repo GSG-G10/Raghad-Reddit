@@ -68,7 +68,7 @@ searchForrm.onsubmit = () => {
 };
 
 // function to create a container for comments
-const CreateCommentContainer = (index, userName, time, userImg, text, voteNum) => {
+const CreateCommentContainer = (index, commentId, userName, time, userImg, text, voteNum) => {
   if (document.querySelector('.reply-form')) {
     document.querySelector('.reply-form').style.display = 'none';
   }
@@ -94,6 +94,18 @@ const CreateCommentContainer = (index, userName, time, userImg, text, voteNum) =
   const downVote = createNode('img', 'down-vote', commentOpt);
   upVote.src = '..//image//upvote.png';
   downVote.src = '..//image//downvote.png';
+  upVote.onclick = () => {
+    fetch(`/upvote-comment/${commentId}`)
+      .then(() => {
+        window.location.reload();
+      });
+  };
+  downVote.onclick = () => {
+    fetch(`/downvote-comment/${commentId}`)
+      .then(() => {
+        window.location.reload();
+      });
+  };
 };
 
 // function to display the comment data
@@ -106,6 +118,7 @@ const displayCommentData = (data, index) => {
   data.forEach((element) => {
     CreateCommentContainer(
       index,
+      element.id,
       element.username,
       element.comment_date,
       element.img,
@@ -185,7 +198,6 @@ const createPostContainer = (
     commentsSection.style.display = 'block';
     fetch(`/comments/${postId}`).then((data) => data.json()).then((data) => {
       displayCommentData(data, index);
-      deleteComment();
     });
   };
   const commentIcon = createNode('i', 'far', postComments);
