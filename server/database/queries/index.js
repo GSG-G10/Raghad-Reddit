@@ -24,6 +24,8 @@ const unSavePost = require('./unSavePost');
 const deletePost = require('./deletePost');
 const unFollow = require('./unFollow');
 const deleteComment = require('./deleteComment');
+const downVoteComment = require('./downVoteComment');
+const upVoteComment = require('./upVoteComment');
 
 module.exports = {
   signUpQuery,
@@ -52,4 +54,6 @@ module.exports = {
   deletePost,
   unFollow,
   deleteComment,
+  downVoteComment,
+  upVoteComment,
 };
