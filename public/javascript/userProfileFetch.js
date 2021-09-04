@@ -22,13 +22,19 @@ fetchData(`${endPoint}/profile`, (data) => {
     followBtn.textContent = 'FOLLOW';
     followBtn.onclick = () => {
       if (followBtn.textContent === 'FOLLOW') {
-        followBtn.textContent = 'UNFOLLOW';
-        followBtn.style.color = '#ccc9c9';
-        followBtn.style.fontWeight = 'bolde';
+        fetch(`/follow/${searchedUsername}`).then(() => {
+          followBtn.textContent = 'UNFOLLOW';
+          followBtn.style.color = '#ccc9c9';
+          followBtn.style.fontWeight = 'bolde';
+          window.location.reload();
+        });
       } else {
-        followBtn.textContent = 'FOLLOW';
-        followBtn.style.color = 'white';
-        followBtn.style.fontWeight = 'bolde';
+        fetch(`/follow/${searchedUsername}`).then(() => {
+          followBtn.textContent = 'FOLLOW';
+          followBtn.style.color = 'white';
+          followBtn.style.fontWeight = 'bolde';
+          window.location.reload();
+        });
       }
     };
   }
