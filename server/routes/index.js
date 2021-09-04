@@ -34,6 +34,8 @@ const {
   handleDeletePost,
   handleUnFollow,
   handleDeleteComment,
+  handleDownVoteComment,
+  handleUpVoteComment,
 } = require('../controllers');
 
 router.use(cookieParse());
@@ -66,6 +68,8 @@ router.post('/change-pic', handleChangePic);
 router.post('/create-post', authentication, handleCreatePost);
 router.get('/delete-post/:postId', authentication, handleDeletePost);
 router.get('/delete-comment/:commentId', authentication, handleDeleteComment);
+router.get('/upvote-comment/:commentId', authentication, handleUpVoteComment);
+router.get('/downvote-comment/:commentId', authentication, handleDownVoteComment);
 router.use(handleErrorNotFound);
 router.use(handleServerError);
 

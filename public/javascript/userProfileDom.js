@@ -98,16 +98,20 @@ const displayFollowing = (data) => {
 
 // function to add delete btn and event to delete the comment when its the user comment
 const deleteComment = (array) => {
-  const commentOptions = document.querySelectorAll('.comment-options');
-  commentOptions.forEach((elem, index) => {
-    const commentDelete = createNode('button', 'comment-option', elem);
-    commentDelete.textContent = 'Delete';
-    const deleteIcon = createNode('i', 'fas', commentDelete);
-    deleteIcon.classList.add('fa-trash');
-    commentDelete.onclick = () => {
-      const commentId = array[index];
-      fetch(`/delete-comment/${commentId}`).then(() => { window.location.reload(); });
-    };
+  fetchData(`${endPoint}/profile`, (data) => {
+    if (data.boolean) {
+      const commentOptions = document.querySelectorAll('.comment-options');
+      commentOptions.forEach((elem, index) => {
+        const commentDelete = createNode('button', 'comment-option', elem);
+        commentDelete.textContent = 'Delete';
+        const deleteIcon = createNode('i', 'fas', commentDelete);
+        deleteIcon.classList.add('fa-trash');
+        commentDelete.onclick = () => {
+          const commentId = array[index];
+          fetch(`/delete-comment/${commentId}`).then(() => { window.location.reload(); });
+        };
+      });
+    }
   });
 };
 

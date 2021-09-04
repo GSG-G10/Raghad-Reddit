@@ -30,6 +30,8 @@ const handleUnSavePost = require('./unSavePost');
 const handleDeletePost = require('./deletePost');
 const handleUnFollow = require('./unFollow');
 const handleDeleteComment = require('./deleteComment');
+const handleDownVoteComment = require('./downVoteComment');
+const handleUpVoteComment = require('./upVoteComment');
 
 module.exports = {
   handleSignUp,
@@ -64,4 +66,6 @@ module.exports = {
   handleDeletePost,
   handleUnFollow,
   handleDeleteComment,
+  handleDownVoteComment,
+  handleUpVoteComment,
 };
