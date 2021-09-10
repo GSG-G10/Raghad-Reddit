@@ -184,7 +184,7 @@ const createPostContainer = (
   createNode('span', 'user-info-text', userInfo).textContent = ' Posted by ';
   const userNameA = createNode('a', 'post-user-name', userInfo);
   userNameA.textContent = userName;
-  userNameA.href = `/users/${userName}`;
+  userNameA.href = `/user/${userName}`;
   createNode('span', 'post-time', userInfo).textContent = time;
   const postText = createNode('section', 'post-text', post);
   const postTitle = createNode('h3', 'post-title', postText);
@@ -217,7 +217,7 @@ const createPostContainer = (
   postReply.onclick = () => {
     const replyForm = createNode('form', 'reply-form', postCommentContainer);
     const close = createNode('img', 'close', replyForm);
-    close.src = './/image//close.svg';
+    close.src = '..//image//close.svg';
     close.alt = 'close icon';
     const label = createNode('label', 'reply-label', replyForm);
     label.for = 'reply';

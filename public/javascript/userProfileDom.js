@@ -14,7 +14,7 @@ closeBtn.onclick = () => {
 };
 
 // function to create comment container on profile
-const CreateCommentContainerProfile = (userName, time, userImg, text, voteNum) => {
+const CreateCommentContainerProfile = (commentId, userName, time, userImg, text, voteNum) => {
   const commentsContainer = createNode('section', 'comments-container', postsSection);
   const commentContainer = createNode('section', 'comment-container', commentsContainer);
   commentsContainer.classList.add('comment-container-profile');
@@ -39,6 +39,18 @@ const CreateCommentContainerProfile = (userName, time, userImg, text, voteNum) =
   const downVote = createNode('img', 'down-vote', commentOpt);
   upVote.src = '..//image//upvote.png';
   downVote.src = '..//image//downvote.png';
+  upVote.onclick = () => {
+    fetch(`/upvote-comment/${commentId}`)
+      .then(() => {
+        window.location.reload();
+      });
+  };
+  downVote.onclick = () => {
+    fetch(`/downvote-comment/${commentId}`)
+      .then(() => {
+        window.location.reload();
+      });
+  };
 };
 
 // function to display the comment data on profile
@@ -49,6 +61,7 @@ const displayCommentDataProfile = (data) => {
   } else {
     data.forEach((element) => {
       CreateCommentContainerProfile(
+        element.id,
         element.username,
         element.comment_date,
         element.img,
