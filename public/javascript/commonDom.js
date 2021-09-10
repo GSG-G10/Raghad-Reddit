@@ -217,7 +217,7 @@ const createPostContainer = (
   postReply.onclick = () => {
     const replyForm = createNode('form', 'reply-form', postCommentContainer);
     const close = createNode('img', 'close', replyForm);
-    close.src = './/image//close.svg';
+    close.src = '..//image//close.svg';
     close.alt = 'close icon';
     const label = createNode('label', 'reply-label', replyForm);
     label.for = 'reply';
